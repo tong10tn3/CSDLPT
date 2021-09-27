@@ -26,9 +26,9 @@ namespace QLVT
             da.Fill(dt);
             conn_publisher.Close();
             Program.bds_dspm.DataSource = dt;
-            dt.Rows[2].Delete();
             cbChiNhanh.DataSource = dt;
             cbChiNhanh.DisplayMember = "TENCN";cbChiNhanh.ValueMember = "TENSERVER";
+           
             
         }
         private int KetNoi_CSDLGOC()
@@ -52,8 +52,9 @@ namespace QLVT
         {
             if (KetNoi_CSDLGOC() == 0) return;
             LayDSPM("select * from  Get_Subscribes");
-            
+
             cbChiNhanh.SelectedIndex = 0;
+            Program.serverName = cbChiNhanh.SelectedValue.ToString();
         }
 
         private void cbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,11 +74,11 @@ namespace QLVT
                 MessageBox.Show("Tai khoan mat khau khong hop le", "", MessageBoxButtons.OK);
                 return;
             }
-            Program.mlogin = txtTaiKhoan.Text;Program.password = txtMatKhau.Text;
+            Program.mlogin = txtTaiKhoan.Text;
+            Program.password = txtMatKhau.Text;
             if (Program.KetNoi() == 0) return;
 
             Program.mChinhanh = cbChiNhanh.SelectedIndex;
-            Console.Write("Chi Nhanh"+cbChiNhanh.SelectedIndex);
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
             string strLenh = "EXEC SP_LAY_THONG_TIN_NV_TU_LOGIN '" + Program.mlogin + "'";

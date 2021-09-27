@@ -36,50 +36,53 @@ namespace QLVT
 
         private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Form frm = this.CheckExists(typeof(NhanVien));
-             if (frm != null) frm.Activate();
-             else
-             {
-                 NhanVien f = new NhanVien();
-                 f.MdiParent = this;
-                 f.Show();
-             }*/
+           
         }
 
         private void btnNhanVien_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Form frm = this.CheckExists(typeof(NhanVien));
-             if (frm != null) frm.Activate();
-             else
-             {
-                 NhanVien f = new NhanVien();
-                 f.MdiParent = this;
-                 f.Show();
-             }*/
+           
         }
 
         private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Form frm = this.CheckExists(typeof(NhanVien));
-            if (frm != null) frm.Activate();
-            else
-            {
-                NhanVien f = new NhanVien();
-                f.MdiParent = this;
-                f.Show();
-            }*/
+
         }
 
         private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Form frm = this.CheckExists(typeof(DangNhap));
+            Form frm = this.CheckExists(typeof(frmNhanVien));
             if (frm != null) frm.Activate();
             else
             {
-                DangNhap f = new DangNhap();
+                frmNhanVien f = new frmNhanVien();
                 f.MdiParent = this;
                 f.Show();
-            }*/
+            }
+        }
+
+        private void btnDDH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDDH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDDH f = new frmDDH();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnTaoLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmTaoLogin));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoLogin f = new frmTaoLogin();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }
