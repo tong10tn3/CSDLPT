@@ -63,10 +63,25 @@
     <Compile Include="DangNhap.designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="formCon\CTPN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCon\CTPN.Designer.cs">
+      <DependentUpon>CTPN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formCon\DonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCon\DonHang.Designer.cs">
+      <DependentUpon>DonHang.cs</DependentUpon>
     </Compile>
     <Compile Include="formCon\frmChuyenChiNhanh.cs">
       <SubType>Form</SubType>
@@ -104,11 +119,23 @@
     <Compile Include="frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhieuNhap.Designer.cs">
+      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTaoLogin.Designer.cs">
       <DependentUpon>frmTaoLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVatTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVatTu.Designer.cs">
+      <DependentUpon>frmVatTu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +147,12 @@
     </Compile>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formCon\CTPN.resx">
+      <DependentUpon>CTPN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formCon\DonHang.resx">
+      <DependentUpon>DonHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formCon\frmChuyenChiNhanh.resx">
       <DependentUpon>frmChuyenChiNhanh.cs</DependentUpon>
@@ -139,8 +172,14 @@
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPhieuNhap.resx">
+      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTaoLogin.resx">
       <DependentUpon>frmTaoLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVatTu.resx">
+      <DependentUpon>frmVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
