@@ -32,5 +32,15 @@ namespace QLVT.Properties {
                 return ((string)(this["QLVTConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0AGGH98;Initial Catalog=QLVT;User ID=sa")]
+        public string QLVTConnectionString1 {
+            get {
+                return ((string)(this["QLVTConnectionString1"]));
+            }
+        }
     }
 }
