@@ -50,7 +50,7 @@ namespace QLVT
 
             if (Program.mGroup.Equals("CONGTY"))
             {
-                btnThem.Enabled = btnXoa.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnCTPN.Enabled = false;
             }
             btnGhi.Enabled = btnUndo.Enabled = panel1.Enabled = false;
         }
@@ -78,7 +78,7 @@ namespace QLVT
             {
                 try
                 {
-                    maPN = ((DataRowView)bdsPN[bdsPN.Position])["MAVT"].ToString();
+                    maPN = ((DataRowView)bdsPN[bdsPN.Position])["MAPN"].ToString();
                     bdsPN.RemoveCurrent();
                     phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                     phieuNhapTableAdapter.Update(this.dS.PhieuNhap);

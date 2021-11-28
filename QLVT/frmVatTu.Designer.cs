@@ -61,7 +61,7 @@ namespace QLVT
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelVT = new System.Windows.Forms.Panel();
+            this.gbVatTu = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nuSLT = new System.Windows.Forms.NumericUpDown();
@@ -83,7 +83,7 @@ namespace QLVT
             ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.panelVT.SuspendLayout();
+            this.gbVatTu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSLT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
@@ -378,23 +378,23 @@ namespace QLVT
             this.colSOLUONGTON.Visible = true;
             this.colSOLUONGTON.VisibleIndex = 3;
             // 
-            // panelVT
+            // gbVatTu
             // 
-            this.panelVT.Controls.Add(this.label2);
-            this.panelVT.Controls.Add(this.label1);
-            this.panelVT.Controls.Add(sOLUONGTONLabel);
-            this.panelVT.Controls.Add(this.nuSLT);
-            this.panelVT.Controls.Add(dVTLabel);
-            this.panelVT.Controls.Add(this.txtDVT);
-            this.panelVT.Controls.Add(tENVTLabel);
-            this.panelVT.Controls.Add(this.txtTENVT);
-            this.panelVT.Controls.Add(mAVTLabel);
-            this.panelVT.Controls.Add(this.txtMAVT);
-            this.panelVT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVT.Location = new System.Drawing.Point(0, 277);
-            this.panelVT.Name = "panelVT";
-            this.panelVT.Size = new System.Drawing.Size(800, 203);
-            this.panelVT.TabIndex = 10;
+            this.gbVatTu.Controls.Add(this.label2);
+            this.gbVatTu.Controls.Add(this.label1);
+            this.gbVatTu.Controls.Add(sOLUONGTONLabel);
+            this.gbVatTu.Controls.Add(this.nuSLT);
+            this.gbVatTu.Controls.Add(dVTLabel);
+            this.gbVatTu.Controls.Add(this.txtDVT);
+            this.gbVatTu.Controls.Add(tENVTLabel);
+            this.gbVatTu.Controls.Add(this.txtTENVT);
+            this.gbVatTu.Controls.Add(mAVTLabel);
+            this.gbVatTu.Controls.Add(this.txtMAVT);
+            this.gbVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbVatTu.Location = new System.Drawing.Point(0, 277);
+            this.gbVatTu.Name = "gbVatTu";
+            this.gbVatTu.Size = new System.Drawing.Size(800, 203);
+            this.gbVatTu.TabIndex = 10;
             // 
             // label2
             // 
@@ -479,7 +479,7 @@ namespace QLVT
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
-            this.Controls.Add(this.panelVT);
+            this.Controls.Add(this.gbVatTu);
             this.Controls.Add(this.gcVatTu);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -494,8 +494,8 @@ namespace QLVT
             ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.panelVT.ResumeLayout(false);
-            this.panelVT.PerformLayout();
+            this.gbVatTu.ResumeLayout(false);
+            this.gbVatTu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSLT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
@@ -533,7 +533,7 @@ namespace QLVT
         private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONGTON;
-        private System.Windows.Forms.Panel panelVT;
+        private System.Windows.Forms.Panel gbVatTu;
         private System.Windows.Forms.TextBox txtDVT;
         private System.Windows.Forms.TextBox txtTENVT;
         private System.Windows.Forms.TextBox txtMAVT;

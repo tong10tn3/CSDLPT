@@ -28,8 +28,6 @@ namespace QLVT
             Program.bds_dspm.DataSource = dt;
             cbChiNhanh.DataSource = dt;
             cbChiNhanh.DisplayMember = "TENCN";cbChiNhanh.ValueMember = "TENSERVER";
-           
-            
         }
         private int KetNoi_CSDLGOC()
         {

@@ -19,14 +19,6 @@ namespace QLVT.formCon
             InitializeComponent();
         }
 
-        private void cTDDHBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsCTDDH.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dS);
-
-        }
-
         private void CTPN_Load(object sender, EventArgs e)
         {
             dS.EnforceConstraints = false;
@@ -60,13 +52,11 @@ namespace QLVT.formCon
             {
                 string maVT = txtMAVT.Text;
                 int SL = int.Parse(nuSL.Value.ToString());
-                String tinhHuong = "";
                 String sqlCapNhat = "Update Vattu set SOLUONGTON = (SOLUONGTON + " + SL + ") where Vattu.MAVT ='" + maVT + "'";
                 try
                 {
                     this.bdsCTPN.EndEdit();
                     this.cTPNTableAdapter.Update(this.dS.CTPN);
-                    tinhHuong = "+" + SL;
                     int kq = Program.ExecSqlNonQuery(sqlCapNhat);
                     if (kq != 0)
                     {
@@ -88,6 +78,11 @@ namespace QLVT.formCon
         {
             this.bdsCTPN.AddNew();
             txtMAPN.Text = maPN;
+        }
+
+        private void CTPN_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.frmChinh.Enabled = true;
         }
     }
 }

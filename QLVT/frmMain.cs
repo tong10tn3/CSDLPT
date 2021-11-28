@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using QLVT.reporting;
 
 namespace QLVT
 {
@@ -92,6 +93,54 @@ namespace QLVT
             else
             {
                 frmVatTu f = new frmVatTu();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBangKeChiTietNhapXuat ctnx = new frmBangKeChiTietNhapXuat();
+            ctnx.Show();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTongHopNhapXuat ctnx = new frmTongHopNhapXuat();
+            ctnx.Show();
+        }
+
+        private void btnPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmPhieuNhap));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmPhieuNhap f = new frmPhieuNhap();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmKho));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmKho f = new frmKho();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnPhieuXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmPhieuXuat));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmPhieuXuat f = new frmPhieuXuat();
                 f.MdiParent = this;
                 f.Show();
             }

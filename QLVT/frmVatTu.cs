@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,7 +46,7 @@ namespace QLVT
             {
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             }
-            btnUndo.Enabled = btnGhi.Enabled = panelVT.Enabled = false;
+            btnUndo.Enabled = btnGhi.Enabled = gbVatTu.Enabled = false;
         }
 
         private void vattuBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace QLVT
             viTri = bdsVatTu.Position;
             this.bdsVatTu.AddNew();
             btnThem.Enabled = btnXoa.Enabled = gcVatTu.Enabled = btnReload.Enabled = false;
-            btnGhi.Enabled = panelVT.Enabled = btnUndo.Enabled = true;
+            btnGhi.Enabled = gbVatTu.Enabled = btnUndo.Enabled = true;
             nuSLT.Value = 0;
         }
 
@@ -69,7 +70,7 @@ namespace QLVT
         {
             viTri = bdsVatTu.Position;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
-            btnGhi.Enabled = btnUndo.Enabled = panelVT.Enabled = true;
+            btnGhi.Enabled = btnUndo.Enabled = gbVatTu.Enabled = true;
         }
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -135,7 +136,7 @@ namespace QLVT
             }
 
             string sql = "DECLARE @result int " +
-                "EXEC @result = SP_KiemTraMa @p1, @p2 " +
+                "EXEC @result = sp_CheckID @p1, @p2 " +
                 "SELECT 'result' = @result";
             SqlCommand sqlCommand = new SqlCommand(sql, Program.conn);
             sqlCommand.Parameters.AddWithValue("@p1", txtMAVT.Text);
@@ -168,7 +169,6 @@ namespace QLVT
                 {
                     try
                     {
-                        Program.coTatFormVT = true; //Bật cờ cho phép tắt Form NV
                         btnThem.Enabled = btnXoa.Enabled = gcVatTu.Enabled = btnReload.Enabled = btnSua.Enabled = true;
                         btnUndo.Enabled = btnGhi.Enabled = gbVatTu.Enabled = false;
                         this.bdsVatTu.EndEdit();
@@ -188,7 +188,7 @@ namespace QLVT
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             btnThem.Enabled = btnXoa.Enabled = gcVatTu.Enabled = btnReload.Enabled = true;
-            btnUndo.Enabled = panelVT.Enabled = btnGhi.Enabled = false;
+            btnUndo.Enabled = gbVatTu.Enabled = btnGhi.Enabled = false;
             bdsVatTu.CancelEdit();
             bdsVatTu.Position = viTri;
         }
