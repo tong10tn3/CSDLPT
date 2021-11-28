@@ -40,18 +40,18 @@ namespace QLVT.formCon
             this.tableAdapterManager = new QLVT.DSTableAdapters.TableAdapterManager();
             this.cTDDHGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.colMasoDDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
-            this.cTPNTableAdapter = new QLVT.DSTableAdapters.CTPNTableAdapter();
-            this.txtMAPN = new System.Windows.Forms.TextBox();
-            this.txtMAVT = new System.Windows.Forms.TextBox();
-            this.nuSL = new System.Windows.Forms.NumericUpDown();
-            this.nuDonGia = new System.Windows.Forms.NumericUpDown();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnThem = new System.Windows.Forms.Button();
+            this.nuDonGia = new System.Windows.Forms.NumericUpDown();
+            this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
+            this.nuSL = new System.Windows.Forms.NumericUpDown();
+            this.txtMAVT = new System.Windows.Forms.TextBox();
+            this.txtMAPN = new System.Windows.Forms.TextBox();
+            this.cTPNTableAdapter = new QLVT.DSTableAdapters.CTPNTableAdapter();
             mAPNLabel = new System.Windows.Forms.Label();
             mAVTLabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
@@ -61,10 +61,50 @@ namespace QLVT.formCon
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nuDonGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuSL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nuDonGia)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mAPNLabel
+            // 
+            mAPNLabel.AutoSize = true;
+            mAPNLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAPNLabel.Location = new System.Drawing.Point(55, 31);
+            mAPNLabel.Name = "mAPNLabel";
+            mAPNLabel.Size = new System.Drawing.Size(108, 19);
+            mAPNLabel.TabIndex = 0;
+            mAPNLabel.Text = "Mã Phiếu Nhập:";
+            // 
+            // mAVTLabel
+            // 
+            mAVTLabel.AutoSize = true;
+            mAVTLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAVTLabel.Location = new System.Drawing.Point(55, 97);
+            mAVTLabel.Name = "mAVTLabel";
+            mAVTLabel.Size = new System.Drawing.Size(81, 19);
+            mAVTLabel.TabIndex = 2;
+            mAVTLabel.Text = "Mã Vật Tư:";
+            // 
+            // sOLUONGLabel
+            // 
+            sOLUONGLabel.AutoSize = true;
+            sOLUONGLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sOLUONGLabel.Location = new System.Drawing.Point(55, 163);
+            sOLUONGLabel.Name = "sOLUONGLabel";
+            sOLUONGLabel.Size = new System.Drawing.Size(73, 19);
+            sOLUONGLabel.TabIndex = 4;
+            sOLUONGLabel.Text = "Số Lượng:";
+            // 
+            // dONGIALabel
+            // 
+            dONGIALabel.AutoSize = true;
+            dONGIALabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dONGIALabel.Location = new System.Drawing.Point(55, 236);
+            dONGIALabel.Name = "dONGIALabel";
+            dONGIALabel.Size = new System.Drawing.Size(63, 19);
+            dONGIALabel.TabIndex = 6;
+            dONGIALabel.Text = "Đơn Giá:";
             // 
             // dS
             // 
@@ -124,23 +164,6 @@ namespace QLVT.formCon
             this.gridView1.ViewCaption = "CHI TIẾT ĐƠN HÀNG";
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(dONGIALabel);
-            this.panel1.Controls.Add(this.nuDonGia);
-            this.panel1.Controls.Add(sOLUONGLabel);
-            this.panel1.Controls.Add(this.nuSL);
-            this.panel1.Controls.Add(mAVTLabel);
-            this.panel1.Controls.Add(this.txtMAVT);
-            this.panel1.Controls.Add(mAPNLabel);
-            this.panel1.Controls.Add(this.txtMAPN);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(339, 349);
-            this.panel1.TabIndex = 2;
-            // 
             // colMasoDDH
             // 
             this.colMasoDDH.Caption = "MÃ ĐƠN HÀNG";
@@ -173,60 +196,50 @@ namespace QLVT.formCon
             this.colDONGIA.Visible = true;
             this.colDONGIA.VisibleIndex = 3;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnThem);
+            this.panel1.Controls.Add(dONGIALabel);
+            this.panel1.Controls.Add(this.nuDonGia);
+            this.panel1.Controls.Add(sOLUONGLabel);
+            this.panel1.Controls.Add(this.nuSL);
+            this.panel1.Controls.Add(mAVTLabel);
+            this.panel1.Controls.Add(this.txtMAVT);
+            this.panel1.Controls.Add(mAPNLabel);
+            this.panel1.Controls.Add(this.txtMAPN);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(339, 349);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(124, 287);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(80, 30);
+            this.btnThem.TabIndex = 8;
+            this.btnThem.Text = "THÊM";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // nuDonGia
+            // 
+            this.nuDonGia.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPN, "DONGIA", true));
+            this.nuDonGia.Location = new System.Drawing.Point(169, 236);
+            this.nuDonGia.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.nuDonGia.Name = "nuDonGia";
+            this.nuDonGia.Size = new System.Drawing.Size(100, 20);
+            this.nuDonGia.TabIndex = 7;
+            // 
             // bdsCTPN
             // 
             this.bdsCTPN.DataMember = "CTPN";
             this.bdsCTPN.DataSource = this.dS;
-            // 
-            // cTPNTableAdapter
-            // 
-            this.cTPNTableAdapter.ClearBeforeFill = true;
-            // 
-            // mAPNLabel
-            // 
-            mAPNLabel.AutoSize = true;
-            mAPNLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAPNLabel.Location = new System.Drawing.Point(55, 31);
-            mAPNLabel.Name = "mAPNLabel";
-            mAPNLabel.Size = new System.Drawing.Size(108, 19);
-            mAPNLabel.TabIndex = 0;
-            mAPNLabel.Text = "Mã Phiếu Nhập:";
-            // 
-            // txtMAPN
-            // 
-            this.txtMAPN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPN, "MAPN", true));
-            this.txtMAPN.Location = new System.Drawing.Point(169, 31);
-            this.txtMAPN.Name = "txtMAPN";
-            this.txtMAPN.Size = new System.Drawing.Size(100, 20);
-            this.txtMAPN.TabIndex = 1;
-            // 
-            // mAVTLabel
-            // 
-            mAVTLabel.AutoSize = true;
-            mAVTLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAVTLabel.Location = new System.Drawing.Point(55, 97);
-            mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(81, 19);
-            mAVTLabel.TabIndex = 2;
-            mAVTLabel.Text = "Mã Vật Tư:";
-            // 
-            // txtMAVT
-            // 
-            this.txtMAVT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPN, "MAVT", true));
-            this.txtMAVT.Location = new System.Drawing.Point(169, 96);
-            this.txtMAVT.Name = "txtMAVT";
-            this.txtMAVT.Size = new System.Drawing.Size(100, 20);
-            this.txtMAVT.TabIndex = 3;
-            // 
-            // sOLUONGLabel
-            // 
-            sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sOLUONGLabel.Location = new System.Drawing.Point(55, 163);
-            sOLUONGLabel.Name = "sOLUONGLabel";
-            sOLUONGLabel.Size = new System.Drawing.Size(73, 19);
-            sOLUONGLabel.TabIndex = 4;
-            sOLUONGLabel.Text = "Số Lượng:";
             // 
             // nuSL
             // 
@@ -246,38 +259,25 @@ namespace QLVT.formCon
             0,
             0});
             // 
-            // dONGIALabel
+            // txtMAVT
             // 
-            dONGIALabel.AutoSize = true;
-            dONGIALabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dONGIALabel.Location = new System.Drawing.Point(55, 236);
-            dONGIALabel.Name = "dONGIALabel";
-            dONGIALabel.Size = new System.Drawing.Size(63, 19);
-            dONGIALabel.TabIndex = 6;
-            dONGIALabel.Text = "Đơn Giá:";
+            this.txtMAVT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPN, "MAVT", true));
+            this.txtMAVT.Location = new System.Drawing.Point(169, 96);
+            this.txtMAVT.Name = "txtMAVT";
+            this.txtMAVT.Size = new System.Drawing.Size(100, 20);
+            this.txtMAVT.TabIndex = 3;
             // 
-            // nuDonGia
+            // txtMAPN
             // 
-            this.nuDonGia.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPN, "DONGIA", true));
-            this.nuDonGia.Location = new System.Drawing.Point(169, 236);
-            this.nuDonGia.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.nuDonGia.Name = "nuDonGia";
-            this.nuDonGia.Size = new System.Drawing.Size(100, 20);
-            this.nuDonGia.TabIndex = 7;
+            this.txtMAPN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPN, "MAPN", true));
+            this.txtMAPN.Location = new System.Drawing.Point(169, 31);
+            this.txtMAPN.Name = "txtMAPN";
+            this.txtMAPN.Size = new System.Drawing.Size(100, 20);
+            this.txtMAPN.TabIndex = 1;
             // 
-            // btnThem
+            // cTPNTableAdapter
             // 
-            this.btnThem.Location = new System.Drawing.Point(124, 287);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(80, 30);
-            this.btnThem.TabIndex = 8;
-            this.btnThem.Text = "THÊM";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.cTPNTableAdapter.ClearBeforeFill = true;
             // 
             // CTPN
             // 
@@ -289,6 +289,7 @@ namespace QLVT.formCon
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "CTPN";
             this.Text = "CTPN";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CTPN_FormClosed);
             this.Load += new System.EventHandler(this.CTPN_Load);
             this.Shown += new System.EventHandler(this.CTPN_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
@@ -297,9 +298,9 @@ namespace QLVT.formCon
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nuDonGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuSL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nuDonGia)).EndInit();
             this.ResumeLayout(false);
 
         }

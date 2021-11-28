@@ -79,7 +79,7 @@ namespace QLVT
             try
             {
                 
-                Program.connstr = "Data Source= " + Program.serverName+ ";Initial Catalog=" +
+                Program.connstr = "Data Source=" + Program.serverName+ ";Initial Catalog=" +
                     Program.database + ";User ID=" +
                     Program.mlogin + ";password=" + Program.password;
                 Program.conn.ConnectionString = Program.connstr;
