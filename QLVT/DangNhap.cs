@@ -97,12 +97,18 @@ namespace QLVT
             Program.mGroup = Program.myReader.GetString(2);
             Program.myReader.Close();
             Program.conn.Close();
-            Program.frmChinh.MANV.Caption = "MA NV: " + Program.userName;
-            Program.frmChinh.TEN.Caption = "HO TEN: " + Program.mHoten;
-            Program.frmChinh.NHOM.Caption = "NHOM: " + Program.mGroup;
-            Program.frmChinh.ShowDialog();
-            this.Close();
-            
+            Program.frmChinh = new frmMain();
+            Program.frmChinh.MANV.Caption = "MÃ NV: " + Program.userName;
+            Program.frmChinh.TEN.Caption = "HỌ TÊN: " + Program.mHoten;
+            Program.frmChinh.NHOM.Caption = "NHÓM: " + Program.mGroup;
+            Program.frmChinh.Activate();
+            Program.frmChinh.Show();
+            this.Visible = false;
+        }
+
+        private void DangNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) btnDangNhap_Click(sender, e);
         }
     }
 }

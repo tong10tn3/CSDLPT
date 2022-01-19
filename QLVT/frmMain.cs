@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraReports.UI;
 using QLVT.reporting;
 
 namespace QLVT
@@ -28,9 +29,9 @@ namespace QLVT
         
         public void hienThiMenu()
         {
-            MANV.Caption = "MANV: " + Program.userName;
-            TEN.Caption = "HO TEN: " + Program.mHoten;
-            NHOM.Caption = "NHOM: " + Program.mGroup;
+            MANV.Caption = "MÃ NV: " + Program.userName;
+            TEN.Caption = "HỌ TÊN: " + Program.mHoten;
+            NHOM.Caption = "NHÓM: " + Program.mGroup;
 
 
         }
@@ -144,6 +145,49 @@ namespace QLVT
                 f.MdiParent = this;
                 f.Show();
             }
+        }
+
+        private void btnRPDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachNhanVien rpt = new DanhSachNhanVien();
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            print.ShowPreviewDialog();
+        }
+
+        private void btnRPDMVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMucVatTu rpt = new DanhMucVatTu();
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            print.ShowPreviewDialog();
+        }
+
+        private void btnRPDDH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RPDDH rpt = new RPDDH();
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            print.ShowPreviewDialog();
+        }
+
+        private void btnRPHDNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmHoatDongNhanVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmHoatDongNhanVien f = new frmHoatDongNhanVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.frmDangNhap.Visible = true;
         }
     }
 }

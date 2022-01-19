@@ -307,3 +307,7 @@ G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.frmPhieuXuat.resources
 G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.formCon.frmCTPX.resources
 G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.DanhMucVatTu.resources
 G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.DanhSachNhanVien.resources
+G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.formCon.frmChiTietDDH.resources
+G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.frmHoatDongNhanVien.resources
+G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.RPDDH.resources
+G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.RPHoatDongNhanVien.resources

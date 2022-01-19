@@ -39,10 +39,18 @@ namespace QLVT
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKho = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRPDSNV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRPDMVT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRPDDH = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRPHDNV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -55,8 +63,6 @@ namespace QLVT
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnKho = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -76,9 +82,14 @@ namespace QLVT
             this.barButtonItem2,
             this.btnPhieuNhap,
             this.btnKho,
-            this.btnPhieuXuat});
+            this.btnPhieuXuat,
+            this.btnRPDSNV,
+            this.btnRPDMVT,
+            this.btnRPDDH,
+            this.btnRPHDNV,
+            this.btnDangXuat});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.MaxItemId = 15;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -96,9 +107,10 @@ namespace QLVT
             // 
             // btnDDH
             // 
-            this.btnDDH.Caption = "DDH";
+            this.btnDDH.Caption = "Đơn Đặt Hàng";
             this.btnDDH.Id = 2;
-            this.btnDDH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDDH.ImageOptions.SvgImage")));
+            this.btnDDH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDDH.ImageOptions.Image")));
+            this.btnDDH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDDH.ImageOptions.LargeImage")));
             this.btnDDH.Name = "btnDDH";
             this.btnDDH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDDH_ItemClick);
             // 
@@ -114,12 +126,14 @@ namespace QLVT
             // 
             this.btnVatTu.Caption = "Vật Tư";
             this.btnVatTu.Id = 4;
+            this.btnVatTu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnVatTu.ImageOptions.Image")));
+            this.btnVatTu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnVatTu.ImageOptions.LargeImage")));
             this.btnVatTu.Name = "btnVatTu";
             this.btnVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVatTu_ItemClick);
             // 
             // barButtonItem1
             // 
-            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Caption = "Chi Tiết Nhập/Xuất";
             this.barButtonItem1.Id = 5;
             this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
             this.barButtonItem1.Name = "barButtonItem1";
@@ -127,8 +141,9 @@ namespace QLVT
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Caption = "Tổng Hợp Nhập Xuất";
             this.barButtonItem2.Id = 6;
+            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
@@ -136,15 +151,74 @@ namespace QLVT
             // 
             this.btnPhieuNhap.Caption = "Phiếu Nhập";
             this.btnPhieuNhap.Id = 7;
+            this.btnPhieuNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuNhap.ImageOptions.Image")));
+            this.btnPhieuNhap.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhieuNhap.ImageOptions.LargeImage")));
             this.btnPhieuNhap.Name = "btnPhieuNhap";
             this.btnPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuNhap_ItemClick);
+            // 
+            // btnKho
+            // 
+            this.btnKho.Caption = "Kho";
+            this.btnKho.Id = 8;
+            this.btnKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKho.ImageOptions.LargeImage")));
+            this.btnKho.Name = "btnKho";
+            this.btnKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKho_ItemClick);
+            // 
+            // btnPhieuXuat
+            // 
+            this.btnPhieuXuat.Caption = "Phiếu Xuất";
+            this.btnPhieuXuat.Id = 9;
+            this.btnPhieuXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhieuXuat.ImageOptions.LargeImage")));
+            this.btnPhieuXuat.Name = "btnPhieuXuat";
+            this.btnPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuXuat_ItemClick);
+            // 
+            // btnRPDSNV
+            // 
+            this.btnRPDSNV.Caption = "Danh Sách Nhân Viên";
+            this.btnRPDSNV.Id = 10;
+            this.btnRPDSNV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRPDSNV.ImageOptions.SvgImage")));
+            this.btnRPDSNV.Name = "btnRPDSNV";
+            this.btnRPDSNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRPDSNV_ItemClick);
+            // 
+            // btnRPDMVT
+            // 
+            this.btnRPDMVT.Caption = "Danh Mục Vật Tư";
+            this.btnRPDMVT.Id = 11;
+            this.btnRPDMVT.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRPDMVT.ImageOptions.SvgImage")));
+            this.btnRPDMVT.Name = "btnRPDMVT";
+            this.btnRPDMVT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRPDMVT_ItemClick);
+            // 
+            // btnRPDDH
+            // 
+            this.btnRPDDH.Caption = "Đơn Đặt Hàng";
+            this.btnRPDDH.Id = 12;
+            this.btnRPDDH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRPDDH.ImageOptions.SvgImage")));
+            this.btnRPDDH.Name = "btnRPDDH";
+            this.btnRPDDH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRPDDH_ItemClick);
+            // 
+            // btnRPHDNV
+            // 
+            this.btnRPHDNV.Caption = "Hoạt Động Nhân Viên";
+            this.btnRPHDNV.Id = 13;
+            this.btnRPHDNV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRPHDNV.ImageOptions.SvgImage")));
+            this.btnRPHDNV.Name = "btnRPHDNV";
+            this.btnRPHDNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRPHDNV_ItemClick);
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Caption = "Đăng Xuất";
+            this.btnDangXuat.Id = 14;
+            this.btnDangXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.ImageOptions.LargeImage")));
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangXuat_ItemClick);
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup5});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "CHỨC NĂNG";
             // 
@@ -154,7 +228,6 @@ namespace QLVT
             this.ribbonPageGroup1.ItemLinks.Add(this.btnVatTu);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnKho);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // ribbonPageGroup2
             // 
@@ -162,27 +235,33 @@ namespace QLVT
             this.ribbonPageGroup2.ItemLinks.Add(this.btnPhieuNhap);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnPhieuXuat);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnTaoLogin);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnDangXuat);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4});
             this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "IN";
+            this.ribbonPage2.Text = "BÁO CÁO";
             // 
             // ribbonPageGroup4
             // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnRPDSNV);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnRPDMVT);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnRPDDH);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnRPHDNV);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // barManager1
             // 
@@ -274,20 +353,6 @@ namespace QLVT
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // btnKho
-            // 
-            this.btnKho.Caption = "Kho";
-            this.btnKho.Id = 8;
-            this.btnKho.Name = "btnKho";
-            this.btnKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKho_ItemClick);
-            // 
-            // btnPhieuXuat
-            // 
-            this.btnPhieuXuat.Caption = "Phiếu Xuất";
-            this.btnPhieuXuat.Id = 9;
-            this.btnPhieuXuat.Name = "btnPhieuXuat";
-            this.btnPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuXuat_ItemClick);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +368,7 @@ namespace QLVT
             this.Ribbon = this.ribbonControl1;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
@@ -339,6 +405,12 @@ namespace QLVT
         private DevExpress.XtraBars.BarButtonItem btnPhieuNhap;
         private DevExpress.XtraBars.BarButtonItem btnKho;
         private DevExpress.XtraBars.BarButtonItem btnPhieuXuat;
+        private DevExpress.XtraBars.BarButtonItem btnRPDSNV;
+        private DevExpress.XtraBars.BarButtonItem btnRPDMVT;
+        private DevExpress.XtraBars.BarButtonItem btnRPDDH;
+        private DevExpress.XtraBars.BarButtonItem btnRPHDNV;
+        private DevExpress.XtraBars.BarButtonItem btnDangXuat;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
 

@@ -137,8 +137,9 @@ namespace QLVT
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            SqlConnection conn = new SqlConnection();
             string query = "DECLARE	@result int " +
-                           "EXEC @result = SP_CheckID '" + mAKHOTextBox.Text + "', MAKHO" +
+                           "EXEC @result = SP_CheckID '" + mAKHOTextBox.Text + "', 'MAKHO'" +
                            "SELECT 'result' = @result";
             SqlDataReader myReader = Program.ExecSqlDataReader(query);
             myReader.Read();
@@ -146,7 +147,7 @@ namespace QLVT
             myReader.Close();
 
             query = "DECLARE @result int " +
-                    "EXEC @result = SP_CheckID '" + tENKHOTextBox.Text + "', TENKHO" +
+                    "EXEC @result = SP_CheckID '" + tENKHOTextBox.Text + "', 'TENKHO'" +
                     "SELECT 'result' = @result";
             myReader = Program.ExecSqlDataReader(query);
             myReader.Read();

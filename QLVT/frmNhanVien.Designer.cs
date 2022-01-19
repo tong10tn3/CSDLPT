@@ -806,8 +806,6 @@ namespace QLVT
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.ComboBox cbMaChiNhanh;
         private System.Windows.Forms.Label label1;
-        private DS DS;
-        private DSTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcNhanVien;
         private DevExpress.XtraGrid.Views.Grid.GridView gvNhanVien;
@@ -837,5 +835,7 @@ namespace QLVT
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraBars.BarButtonItem btnSua;
         public System.Windows.Forms.BindingSource bdsNhanVien;
+        public DSTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
+        public DS DS;
     }
 }

@@ -36,6 +36,7 @@ namespace QLVT
 
         public static BindingSource bds_dspm = new BindingSource();//giu bdsPM khi dang nhap
         public static frmMain frmChinh;
+        public static DangNhap frmDangNhap;
 
         public static int KetNoi(SqlConnection conn)
         {
@@ -191,8 +192,9 @@ namespace QLVT
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            frmChinh = new frmMain();
-            Application.Run(new DangNhap());
+           
+            frmDangNhap = new DangNhap();
+            Application.Run(frmDangNhap);
            
         }
     }
