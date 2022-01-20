@@ -14,7 +14,7 @@ namespace QLVT.formCon
 {
     public partial class frmChuyenChiNhanh : DevExpress.XtraEditors.XtraForm
     {
-        
+        public String maNVCu;
         public string maNVMoi;
         public string ho;
         public string ten;
@@ -22,13 +22,16 @@ namespace QLVT.formCon
         public string diaChi;
         public string luong;
         public frmNhanVien nv;
+        public int pos;
      
         public frmChuyenChiNhanh()
         {
             InitializeComponent();
         }
-        public frmChuyenChiNhanh(String maNhanVienMoi1, String ho1, String ten1,String ngaySinh, String diaChi1, String luong1,frmNhanVien a)
+        public frmChuyenChiNhanh(String maNhanVienCu,int vt,String maNhanVienMoi1, String ho1, String ten1,String ngaySinh, String diaChi1, String luong1,frmNhanVien a)
         {
+            this.maNVCu = maNhanVienCu;
+            this.pos = vt;
             this.maNVMoi = maNhanVienMoi1;
             this.ho = ho1;
             this.ten = ten1;
@@ -88,26 +91,32 @@ namespace QLVT.formCon
             //Kiểm tra điều kiện mấy cái txt không được trống
             if(txtMaNhanVien.Text.Trim()=="")
             {
+                MessageBox.Show("Mã Nhân Viên Không được trống !");
                 return;
             }
             if (txtHo.Text.Trim() == "")
             {
+                MessageBox.Show("Họ Không được trống !");
                 return;
             }
             if (txtTen.Text.Trim() == "")
             {
+                MessageBox.Show("Tên Không được trống !");
                 return;
             }
             if (txtDiaChi.Text.Trim() == "")
             {
+                MessageBox.Show("Địa Chỉ Không được trống !");
                 return;
             }
             if (dNgaySinh.Text.Trim() == "")
             {
+                MessageBox.Show("Ngày Sinh Không được trống !");
                 return;
             }
             if (txtLuong.Text.Trim() == "")
             {
+                MessageBox.Show("Lương Không được trống !");
                 return;
             }
             if (dNgaySinh.DateTime > DateTime.Today)
@@ -157,13 +166,44 @@ namespace QLVT.formCon
 
                 if (Program.KetNoi(conn) == 0) return;
                 
+                try
+                {
+                    int kq = Program.ExecSqlNonQuery("exec xoaLoginTuMNV '" + this.maNVCu + "'", conn);
+                    if (kq != 0)
+                    {
+                        MessageBox.Show("Lỗi Xóa Login");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Loi Xoa Login. Ban Hay Xoa Lai\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
+
+
                 if (conn.State == ConnectionState.Closed) conn.Open();
                 String cmd = "exec sp_chuyenChiNhanh " + int.Parse(txtMaNhanVien.Text.Trim()) + ",'" + txtHo.Text.Trim() + "','" + txtTen.Text.Trim() + "','" + txtDiaChi.Text.Trim() + "','" + dNgaySinh.Text.Trim() + "'," + float.Parse(txtLuong.Text.Trim()) + ",'" + cbChiNhanhMoi.SelectedValue + "'";
                 int result = Program.ExecSqlNonQuery(cmd,conn);
                 conn.Close();
-                MessageBox.Show("Chuyển Chi Nhánh Thành Công!");
+              
+                try
+                {
+                    ((DataRowView)this.nv.bdsNhanVien[this.pos])["TrangThaiXoa"] = 1;
+                    this.nv.bdsNhanVien.EndEdit();
+                    this.nv.bdsNhanVien.ResetCurrentItem();
+                    this.nv.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.nv.nhanVienTableAdapter.Update(this.nv.DS.NhanVien);
+                    MessageBox.Show("Chuyển Chi Nhánh Thành Công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi đổi trạng thái xóa NV ở chuyển chi nhánh\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
+
+
                 this.Close();
-                ((DataRowView)this.nv.bdsNhanVien[0])["TrangThaiXoa"]=1;
             }
             catch(Exception ex)
             {

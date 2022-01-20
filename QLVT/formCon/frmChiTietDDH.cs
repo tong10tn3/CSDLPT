@@ -11,24 +11,23 @@ using System.Windows.Forms;
 
 namespace QLVT.formCon
 {
-    public partial class frmCTDDHSua : DevExpress.XtraEditors.XtraForm
+    public partial class frmChiTietDDH : DevExpress.XtraEditors.XtraForm
     {
-        String MSDDH;
-        String maVT;
-        frmDDH frmDDH;
+        public frmDDH frmDDH;
+        public String MSDDH;
+        public String maVT;
         public int soLuong;
         public Double donGia;
+        String ddh1;
 
-        public frmCTDDHSua()
+        public frmChiTietDDH()
         {
             InitializeComponent();
         }
-        public frmCTDDHSua(String MSDDH, String MAVT, frmDDH a)
+        public frmChiTietDDH(String MSDDH, frmDDH a)
         {
             this.MSDDH = MSDDH;
-            this.maVT = MAVT;
-            this.frmDDH = a;
-
+            frmDDH = a;
             InitializeComponent();
         }
         private void cTDDHBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -39,35 +38,30 @@ namespace QLVT.formCon
 
         }
 
-        private void frmCTDDHSua_Load(object sender, EventArgs e)
+        private void frmChiTietDDH_Load(object sender, EventArgs e)
         {
             DS.EnforceConstraints = false;
-            this.cTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.cTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.vattuTableAdapter.Fill(this.DS.Vattu);
             this.cTDDHTableAdapter.Fill(this.DS.CTDDH);
             cbTenVT.DataSource = bdsVatTu;
             cbTenVT.DisplayMember = "TENVT";
             cbTenVT.ValueMember = "MAVT";
-            int vt = 0;
-            bool kt = false;
-            for (int i = 0; i < bdsCTDDH.Count; i++)
-            {
-                if (((DataRowView)bdsCTDDH[i])["MasoDDH"].ToString() == this.MSDDH && ((DataRowView)bdsCTDDH[i])["MAVT"].ToString() == this.maVT)
-                {
-                    vt = i;
-                    kt = true;
-                    break;
-                }
-            }
-            bdsCTDDH.Position = vt;
-            cbTenVT.SelectedValue = ((DataRowView)bdsCTDDH[vt])["MAVT"].ToString();
+            bdsCTDDH.AddNew();
+            txtMSDDH.Text = this.MSDDH;
+            txtMaVT.Text = (string)cbTenVT.SelectedValue;
 
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void tENVTLabel_Click(object sender, EventArgs e)
         {
-            if (nudSoLuong.Value <= 0)
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (nSoLuong.Value <= 0)
             {
 
             }
@@ -75,9 +69,10 @@ namespace QLVT.formCon
             {
 
             }
-            /*bool kt = false;
+            bool kt = false;
             for (int i = 0; i < bdsCTDDH.Count - 1; i++)
             {
+
                 if (((DataRowView)bdsCTDDH[i])["MasoDDH"].ToString() == txtMSDDH.Text && ((DataRowView)bdsCTDDH[i])["MAVT"].ToString() == txtMaVT.Text)
                 {
                     kt = true;
@@ -90,9 +85,9 @@ namespace QLVT.formCon
                 MessageBox.Show("Đã tồn tại mã vật tư cùng với mã đơn hàng!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }*/
+            }
             this.maVT = txtMaVT.Text.Trim();
-            this.soLuong = Convert.ToInt32(nudSoLuong.Value);
+            this.soLuong = Convert.ToInt32(nSoLuong.Value);
             this.donGia = Convert.ToDouble(txtDonGia.Text);
             ((DataRowView)bdsCTDDH[bdsCTDDH.Position])["MasoDDH"] = this.MSDDH.Trim();
             ((DataRowView)bdsCTDDH[bdsCTDDH.Position])["MAVT"] = this.maVT.Trim();
@@ -121,9 +116,41 @@ namespace QLVT.formCon
             }
         }
 
-        private void cTDDHDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dONGIALabel_Click(object sender, EventArgs e)
         {
-            cbTenVT.SelectedValue = ((DataRowView)bdsCTDDH[bdsCTDDH.Position])["MAVT"].ToString();
+
+        }
+
+        private void txtMaVT_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTenVT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaVT_EditValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaVT_EditValueChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTenVT_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMaVT.Text = (string)cbTenVT.SelectedValue;
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

@@ -44,9 +44,10 @@ namespace QLVT
             // 
             this.lbChi.BackColor = System.Drawing.Color.Transparent;
             this.lbChi.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChi.Location = new System.Drawing.Point(12, 119);
+            this.lbChi.Location = new System.Drawing.Point(9, 97);
+            this.lbChi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbChi.Name = "lbChi";
-            this.lbChi.Size = new System.Drawing.Size(165, 38);
+            this.lbChi.Size = new System.Drawing.Size(124, 31);
             this.lbChi.TabIndex = 1;
             this.lbChi.Text = "Chi Nhánh";
             // 
@@ -54,9 +55,10 @@ namespace QLVT
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 201);
+            this.label2.Location = new System.Drawing.Point(9, 163);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 38);
+            this.label2.Size = new System.Drawing.Size(110, 31);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tài Khoản";
             // 
@@ -64,27 +66,30 @@ namespace QLVT
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 273);
+            this.label3.Location = new System.Drawing.Point(9, 222);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 38);
+            this.label3.Size = new System.Drawing.Size(108, 31);
             this.label3.TabIndex = 3;
             this.label3.Text = "Mật Khẩu";
             // 
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaiKhoan.Location = new System.Drawing.Point(288, 199);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(216, 162);
+            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(337, 36);
+            this.txtTaiKhoan.Size = new System.Drawing.Size(254, 30);
             this.txtTaiKhoan.TabIndex = 4;
             // 
             // txtMatKhau
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau.Location = new System.Drawing.Point(288, 271);
+            this.txtMatKhau.Location = new System.Drawing.Point(216, 220);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(337, 36);
+            this.txtMatKhau.Size = new System.Drawing.Size(254, 30);
             this.txtMatKhau.TabIndex = 5;
             // 
             // btnDangNhap
@@ -92,9 +97,10 @@ namespace QLVT
             this.btnDangNhap.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDangNhap.Location = new System.Drawing.Point(288, 362);
+            this.btnDangNhap.Location = new System.Drawing.Point(216, 294);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(133, 41);
+            this.btnDangNhap.Size = new System.Drawing.Size(100, 33);
             this.btnDangNhap.TabIndex = 6;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -105,19 +111,21 @@ namespace QLVT
             this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChiNhanh.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChiNhanh.FormattingEnabled = true;
-            this.cbChiNhanh.Location = new System.Drawing.Point(286, 117);
+            this.cbChiNhanh.Location = new System.Drawing.Point(214, 95);
+            this.cbChiNhanh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbChiNhanh.Name = "cbChiNhanh";
-            this.cbChiNhanh.Size = new System.Drawing.Size(339, 37);
+            this.cbChiNhanh.Size = new System.Drawing.Size(255, 30);
             this.cbChiNhanh.TabIndex = 7;
             this.cbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbChiNhanh_SelectedIndexChanged);
             // 
             // DangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnDangNhap;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(807, 472);
+            this.ClientSize = new System.Drawing.Size(605, 384);
             this.Controls.Add(this.cbChiNhanh);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.txtMatKhau);
@@ -125,9 +133,11 @@ namespace QLVT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbChi);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DangNhap";
             this.Text = "DangNhap";
             this.Load += new System.EventHandler(this.DangNhap_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DangNhap_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

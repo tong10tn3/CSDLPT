@@ -33,11 +33,11 @@ namespace QLVT
 
         private void frmPhieuXuat_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.CTPX' table. You can move, or remove it, as needed.
-            this.cTPXTableAdapter.Fill(this.dS.CTPX);
-            // TODO: This line of code loads data into the 'dS.PhieuXuat' table. You can move, or remove it, as needed.
+            this.dS.EnforceConstraints = false;
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
-
+            this.cTPXTableAdapter.Fill(this.dS.CTPX);
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

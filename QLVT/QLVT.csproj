@@ -97,6 +97,12 @@
     <Compile Include="formCon\DonHang.Designer.cs">
       <DependentUpon>DonHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="formCon\frmChiTietDDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCon\frmChiTietDDH.Designer.cs">
+      <DependentUpon>frmChiTietDDH.cs</DependentUpon>
+    </Compile>
     <Compile Include="formCon\frmChuyenChiNhanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,11 +201,29 @@
     <Compile Include="reporting\frmBangKeChiTietNhapXuat.Designer.cs">
       <DependentUpon>frmBangKeChiTietNhapXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="reporting\frmHoatDongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporting\frmHoatDongNhanVien.Designer.cs">
+      <DependentUpon>frmHoatDongNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="reporting\frmTongHopNhapXuat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="reporting\frmTongHopNhapXuat.Designer.cs">
       <DependentUpon>frmTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reporting\RPDDH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reporting\RPDDH.Designer.cs">
+      <DependentUpon>RPDDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reporting\RPHoatDongNhanVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reporting\RPHoatDongNhanVien.Designer.cs">
+      <DependentUpon>RPHoatDongNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="reporting\TongHopNhapXuat.cs">
       <SubType>Component</SubType>
@@ -221,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formCon\DonHang.resx">
       <DependentUpon>DonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formCon\frmChiTietDDH.resx">
+      <DependentUpon>frmChiTietDDH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formCon\frmChuyenChiNhanh.resx">
       <DependentUpon>frmChuyenChiNhanh.cs</DependentUpon>
@@ -280,8 +307,17 @@
     <EmbeddedResource Include="reporting\frmBangKeChiTietNhapXuat.resx">
       <DependentUpon>frmBangKeChiTietNhapXuat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reporting\frmHoatDongNhanVien.resx">
+      <DependentUpon>frmHoatDongNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reporting\frmTongHopNhapXuat.resx">
       <DependentUpon>frmTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporting\RPDDH.resx">
+      <DependentUpon>RPDDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporting\RPHoatDongNhanVien.resx">
+      <DependentUpon>RPHoatDongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reporting\TongHopNhapXuat.resx">
       <DependentUpon>TongHopNhapXuat.cs</DependentUpon>

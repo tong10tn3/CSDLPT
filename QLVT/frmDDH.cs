@@ -21,13 +21,33 @@ namespace QLVT
         {
             InitializeComponent();
         }
+
         public void reloadCTDDH()
         {
             this.cTDDHTableAdapter.Fill(this.DS.CTDDH);
+            addTenVT();
+        }
+        public void readOnlyForm(Boolean dk)
+        {
+            txtMSDDH.ReadOnly = dk;
+            txtNhaCC.ReadOnly = dk;
+            dNgay.ReadOnly = dk;
+            if (dk == false) cbTenKho.Enabled = true;
+            else cbTenKho.Enabled = false;
+        }
+        public void addTenVT()
+        {
+            foreach (DataGridViewRow row in cTDDHDataGridView.Rows)
+            {
+                DataGridViewCell cell = row.Cells[2];
+                int vt = bdsVatTu.Find("MAVT", row.Cells[1].Value.ToString());
+                String tenVT = ((DataRowView)bdsVatTu[vt])["TENVT"].ToString();
+                cell.Value = tenVT;
+            }
         }
         public String layMSDDH()
         {
-            String lastMS= ((DataRowView)bdsDatHang[bdsDatHang.Count-2])["MaSoDDH"].ToString();
+            String lastMS = ((DataRowView)bdsDatHang[bdsDatHang.Count - 2])["MaSoDDH"].ToString();
             String stt = lastMS.Substring(4);
 
             int soTT = Convert.ToInt32(stt);
@@ -51,10 +71,6 @@ namespace QLVT
 
         private void frmDDH_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.PhieuNhap' table. You can move, or remove it, as needed.
-            
-            // TODO: This line of code loads data into the 'DS.HOTENNV' table. You can move, or remove it, as needed.
-
             DS.EnforceConstraints = false;
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.Fill(this.DS.PhieuNhap);
@@ -64,49 +80,49 @@ namespace QLVT
             this.cTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dS.CTDDH' table. You can move, or remove it, as needed.
             this.cTDDHTableAdapter.Fill(this.DS.CTDDH);
-            // TODO: This line of code loads data into the 'dS.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
-            // TODO: This line of code loads data into the 'dS.Kho' table. You can move, or remove it, as needed.
-            this.khoTableAdapter.Fill(this.DS.Kho);        
-            // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
+            this.khoTableAdapter.Fill(this.DS.Kho);
             this.datHangTableAdapter.Fill(this.DS.DatHang);
-            // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
-            //  this.datHangTableAdapter.Fill(this.dS.DatHang);
+            this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.vattuTableAdapter.Fill(this.DS.Vattu);
 
             cbTenKho.DataSource = bdsKho;
             cbTenKho.DisplayMember = "TENKHO";
             cbTenKho.ValueMember = "MAKHO";
-            
+
+
+
             cbHoTenNV.DataSource = bdsHoTenNV;
             cbHoTenNV.DisplayMember = "HOTENNV";
             cbHoTenNV.ValueMember = "MANV";
-           
-            
+
+
             macn = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
             cbMaChiNhanh.DataSource = Program.bds_dspm;// sao chep bds_dspm da load o form DANGNHAP
             cbMaChiNhanh.DisplayMember = "TENCN";
             cbMaChiNhanh.ValueMember = "TENSERVER";
             cbMaChiNhanh.SelectedIndex = Program.mChinhanh;
-           
+
             if (Program.mGroup == "CONGTY")
             {
                 cbMaChiNhanh.Enabled = true;
-                btnThem.Enabled = btnGhi.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = false;
-                
+                btnThem.Enabled = btnSua.Enabled = btnGhi.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = false;
+                contextMenuStrip1.Enabled = false;
+                contextMenuStrip2.Enabled = false;
             }
             else //bat tat theo phan quyen
             {
-                btnThem.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnXoa.Enabled = true;
+                btnThem.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnXoa.Enabled = true;
+                btnGhi.Enabled = false;
                 cbMaChiNhanh.Enabled = false;
             }
-            
+
             cbHoTenNV.SelectedValue = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"];
             ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"] = txtMaKho.Text;
             cbTenKho.SelectedValue = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"];
-
-
+            readOnlyForm(true);
+            addTenVT();
 
         }
 
@@ -157,9 +173,11 @@ namespace QLVT
             cbHoTenNV.Text = Program.mHoten;
             txtMaNV.Text = Program.userName;
             txtMSDDH.Text = layMSDDH();
-           
+            this.dangthem = true;
+            readOnlyForm(false);
+
             ((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"] = Program.userName;
-            btnThem.Enabled = btnSua.Enabled= btnXoa.Enabled = btnTaiLai.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnTaiLai.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
         }
 
@@ -187,7 +205,7 @@ namespace QLVT
             }
             else
             {
-               
+
                 DS.EnforceConstraints = false;
                 this.hOTENNVTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.hOTENNVTableAdapter.Fill(this.DS.HOTENNV);
@@ -195,15 +213,18 @@ namespace QLVT
                 this.cTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                // TODO: This line of code loads data into the 'dS.CTDDH' table. You can move, or remove it, as needed.
                 this.cTDDHTableAdapter.Fill(this.DS.CTDDH);
-                // TODO: This line of code loads data into the 'dS.NhanVien' table. You can move, or remove it, as needed.
                 this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
-                // TODO: This line of code loads data into the 'dS.Kho' table. You can move, or remove it, as needed.
                 this.khoTableAdapter.Fill(this.DS.Kho);
-                // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
+
                 this.datHangTableAdapter.Fill(this.DS.DatHang);
-                macn = (((DataRowView)bdsNhanVien[0])["MACN"].ToString());
+
+
+
+                bdsDatHang.DataSource = this.DS.DatHang;
+                Console.WriteLine("dathang: " + bdsDatHang.Count);
+
+
                 cbHoTenNV.SelectedValue = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"];
                 cbTenKho.SelectedValue = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"];
 
@@ -212,8 +233,9 @@ namespace QLVT
 
         private void gcDatHang_Click(object sender, EventArgs e)
         {
-            cbHoTenNV.SelectedValue= ((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"].ToString();
+            cbHoTenNV.SelectedValue = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"].ToString();
             cbTenKho.SelectedValue = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"].ToString();
+            addTenVT();
         }
 
         private void cbHoTenNV_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,9 +244,9 @@ namespace QLVT
 
         private void cbTenKho_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"]=cbTenKho.SelectedValue;
-            Console.WriteLine(cbTenKho.SelectedValue+" "+ ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"]);
-            
+            ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"] = cbTenKho.SelectedValue;
+            Console.WriteLine(cbTenKho.SelectedValue + " " + ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"]);
+
         }
 
         private void btnTaiLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -233,6 +255,7 @@ namespace QLVT
             {
                 this.datHangTableAdapter.Fill(this.DS.DatHang);
                 this.cTDDHTableAdapter.Fill(this.DS.CTDDH);
+                addTenVT();
             }
             catch (Exception ex)
             {
@@ -246,10 +269,11 @@ namespace QLVT
             bdsDatHang.CancelEdit();
             bdsDatHang.Position = vitri;
             gcDatHang.Enabled = true;
+            readOnlyForm(true);
 
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnTaiLai.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = btnPhucHoi.Enabled = false;
-            
+
         }
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -261,17 +285,17 @@ namespace QLVT
             }
             if (bdsPhieuNhap.Count > 0)
             {
-                MessageBox.Show("Khong the xoa Nhan Vien nay vi da lap Phieu Nhap", "", MessageBoxButtons.OK);
+                MessageBox.Show("Khong the xoa Đơn Đặt Hàng này nay vi da lap Phieu Nhap", "", MessageBoxButtons.OK);
                 return;
             }
             if (bdsCTDDH.Count > 0)
             {
-                MessageBox.Show("Khong the xoa Nhan Vien nay vi da lap CTDDH", "", MessageBoxButtons.OK);
+                MessageBox.Show("Khong the xoa Đơn Đặt hàng này  vi da lap CTDDH", "", MessageBoxButtons.OK);
                 return;
             }
             if (MessageBox.Show("Ban co that su muon xoa Đơn Đặt Hàng nay ??", "Xac Nhan", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                String msddh=((DataRowView) bdsDatHang[bdsDatHang.Position])["MaSoDDH"].ToString(); ;
+                String msddh = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MaSoDDH"].ToString(); ;
                 try
                 {
                     bdsDatHang.RemoveCurrent();
@@ -291,8 +315,6 @@ namespace QLVT
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-
             try
             {
                 if (Program.KetNoi() == 0)
@@ -311,18 +333,15 @@ namespace QLVT
                     MessageBox.Show("Lỗi Thực Thi Kiểm tra Check_ID\n", "", MessageBoxButtons.OK);
                     return;
                 }
-                if (result == 1)
-                {
-                    MessageBox.Show("Mã Đơn Đặt Hàng Đã Tồn Tại ở Chi Nhánh hiện Tại\n", "", MessageBoxButtons.OK);
-                    return;
-                }
-                else if (result == 2)
+
+                if (result == 2)
                 {
                     MessageBox.Show("Mã Đơn Đặt Hàng Đã Tồn Tại ở Chi Nhánh Khác\n", "", MessageBoxButtons.OK);
                     return;
                 }
                 ((DataRowView)bdsDatHang[bdsDatHang.Position])["MAKHO"] = txtMaKho.Text;
                 ((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"] = txtMaNV.Text;
+
                 bdsDatHang.EndEdit();
                 bdsDatHang.ResetCurrentItem();
                 this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -333,19 +352,21 @@ namespace QLVT
                 MessageBox.Show("Loi ghi Dat Hang\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
+            this.dangthem = false;
             gcDatHang.Enabled = true;
-           
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnTaiLai.Enabled = btnThoat.Enabled =btnGhi.Enabled = btnPhucHoi.Enabled== true;
+            readOnlyForm(true);
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnTaiLai.Enabled = btnThoat.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled == true;
+            btnGhi.Enabled = false;
         }
 
         private void cbTenKho_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtMaKho_EditValueChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -364,18 +385,18 @@ namespace QLVT
 
         private void btnThemCTDDH_DATHANG_Click(object sender, EventArgs e)
         {
-            if(((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"].ToString() != Program.userName)
+            if (((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"].ToString() != Program.userName)
             {
                 MessageBox.Show("Chỉ có thể thêm CTDDH của chính mình\n", "", MessageBoxButtons.OK);
             }
             else
             {
                 String MSDDH = ((DataRowView)bdsDatHang[bdsDatHang.Position])["MaSoDDH"].ToString();
-                frmCTDDH a = new frmCTDDH(MSDDH, this);
+                frmChiTietDDH a = new frmChiTietDDH(MSDDH, this);
                 a.Show();
             }
-            
-            
+
+
         }
 
         private void btnSuaCTDDH_Click(object sender, EventArgs e)
@@ -393,7 +414,7 @@ namespace QLVT
                 frmCTDDHSua a = new frmCTDDHSua(MSDDH, maVT, this);
                 a.Show();
             }
-            
+
 
         }
 
@@ -408,7 +429,7 @@ namespace QLVT
                 bdsCTDDH.RemoveCurrent();
                 this.cTDDHTableAdapter.Update(this.DS.CTDDH);// chỗ này có lỗi nếu trùng
             }
-            
+
 
         }
 
@@ -419,11 +440,12 @@ namespace QLVT
 
         private void gcDatHang_DataSourceChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            readOnlyForm(false);
             if (((DataRowView)bdsDatHang[bdsDatHang.Position])["MANV"].ToString() != Program.userName)
             {
                 MessageBox.Show("Chỉ có thể Sửa Đơn Đặt Hàng của chính mình\n", "", MessageBoxButtons.OK);
@@ -435,12 +457,35 @@ namespace QLVT
                 btnGhi.Enabled = btnPhucHoi.Enabled = true;
                 gcDatHang.Enabled = false;
             }
-           
+
         }
 
         private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void cTDDHDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //this.cTDDHTableAdapter.FillBy(this.DS.CTDDH);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void cTDDHDataGridView_ParentChanged(object sender, EventArgs e)
+        {
+            addTenVT();
         }
     }
 }
