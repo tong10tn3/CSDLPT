@@ -14,6 +14,7 @@ namespace QLVT
     public partial class frmPhieuXuat : Form
     {
         public String maPX = "";
+        public string macn;
         private int viTri;
         public frmPhieuXuat()
         {
@@ -33,11 +34,30 @@ namespace QLVT
 
         private void frmPhieuXuat_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.Kho' table. You can move, or remove it, as needed.
             this.dS.EnforceConstraints = false;
             this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
             this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
             this.cTPXTableAdapter.Fill(this.dS.CTPX);
+            this.khoTableAdapter.Fill(this.dS.Kho);
+
+            macn = ((DataRowView)khoBindingSource[0])["MACN"].ToString();// lấy mã chi nhánh mà đang đứng
+            cbChiNhanh.DataSource = Program.bds_dspm;// sao chep bds_dspm da load o form DANGNHAP
+            cbChiNhanh.DisplayMember = "TENCN";
+            cbChiNhanh.ValueMember = "TENSERVER";
+            cbChiNhanh.SelectedIndex = Program.mChinhanh;
+
+            if (Program.mGroup.Equals("CONGTY"))
+            {
+                btnThem.Links[0].Visible = btnXoa.Links[0].Visible = btnGhi.Links[0].Visible = btnUndo.Links[0].Visible = btnCTPN.Links[0].Visible = false;
+            }
+            else
+            {
+                groupBox1.Visible = false;
+            }
+            btnGhi.Enabled = btnUndo.Enabled = panel1.Enabled = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -144,6 +164,39 @@ namespace QLVT
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void cbMaChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            Program.serverName = cbChiNhanh.SelectedValue.ToString();
+            if (cbChiNhanh.SelectedIndex != Program.mChinhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+
+            }
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Loi ket noi ve chi nhanh  moi", "", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+
+                dS.EnforceConstraints = false;
+                this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
+                this.cTPXTableAdapter.Fill(this.dS.CTPX);
+            }
         }
     }
 }

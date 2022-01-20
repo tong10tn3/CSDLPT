@@ -30,12 +30,12 @@ namespace QLVT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuXuat));
             System.Windows.Forms.Label nGAYLabel;
             System.Windows.Forms.Label mAPXLabel;
             System.Windows.Forms.Label hOTENKHLabel;
             System.Windows.Forms.Label mANVLabel;
             System.Windows.Forms.Label mAKHOLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuXuat));
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -73,12 +73,17 @@ namespace QLVT
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtNgay = new DevExpress.XtraEditors.DateEdit();
-            this.txtMAPX = new System.Windows.Forms.TextBox();
-            this.txtTenKH = new System.Windows.Forms.TextBox();
-            this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtMaKho = new System.Windows.Forms.TextBox();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.txtTenKH = new System.Windows.Forms.TextBox();
+            this.txtMAPX = new System.Windows.Forms.TextBox();
+            this.txtNgay = new DevExpress.XtraEditors.DateEdit();
             this.object_61f010f8_1727_4c85_b1f1_f68abad8014b = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.khoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.khoTableAdapter = new QLVT.DSTableAdapters.KhoTableAdapter();
             nGAYLabel = new System.Windows.Forms.Label();
             mAPXLabel = new System.Windows.Forms.Label();
             hOTENKHLabel = new System.Windows.Forms.Label();
@@ -97,7 +102,59 @@ namespace QLVT
             ((System.ComponentModel.ISupportInitialize)(this.txtNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.object_61f010f8_1727_4c85_b1f1_f68abad8014b)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.object_61f010f8_1727_4c85_b1f1_f68abad8014b.CalendarTimeProperties)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nGAYLabel
+            // 
+            nGAYLabel.AutoSize = true;
+            nGAYLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nGAYLabel.Location = new System.Drawing.Point(41, 133);
+            nGAYLabel.Name = "nGAYLabel";
+            nGAYLabel.Size = new System.Drawing.Size(45, 19);
+            nGAYLabel.TabIndex = 2;
+            nGAYLabel.Text = "Ngày:";
+            // 
+            // mAPXLabel
+            // 
+            mAPXLabel.AutoSize = true;
+            mAPXLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAPXLabel.Location = new System.Drawing.Point(41, 41);
+            mAPXLabel.Name = "mAPXLabel";
+            mAPXLabel.Size = new System.Drawing.Size(103, 19);
+            mAPXLabel.TabIndex = 3;
+            mAPXLabel.Text = "Mã Phiếu Xuất:";
+            // 
+            // hOTENKHLabel
+            // 
+            hOTENKHLabel.AutoSize = true;
+            hOTENKHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            hOTENKHLabel.Location = new System.Drawing.Point(356, 41);
+            hOTENKHLabel.Name = "hOTENKHLabel";
+            hOTENKHLabel.Size = new System.Drawing.Size(115, 19);
+            hOTENKHLabel.TabIndex = 4;
+            hOTENKHLabel.Text = "Tên Khách Hàng:";
+            // 
+            // mANVLabel
+            // 
+            mANVLabel.AutoSize = true;
+            mANVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mANVLabel.Location = new System.Drawing.Point(41, 213);
+            mANVLabel.Name = "mANVLabel";
+            mANVLabel.Size = new System.Drawing.Size(101, 19);
+            mANVLabel.TabIndex = 6;
+            mANVLabel.Text = "Mã Nhân Viên:";
+            // 
+            // mAKHOLabel
+            // 
+            mAKHOLabel.AutoSize = true;
+            mAKHOLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAKHOLabel.Location = new System.Drawing.Point(407, 133);
+            mAKHOLabel.Name = "mAKHOLabel";
+            mAKHOLabel.Size = new System.Drawing.Size(64, 19);
+            mAKHOLabel.TabIndex = 8;
+            mAKHOLabel.Text = "Mã Kho:";
             // 
             // bar1
             // 
@@ -221,7 +278,7 @@ namespace QLVT
             // 
             this.barDockControl8.CausesValidation = false;
             this.barDockControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl8.Location = new System.Drawing.Point(0, 535);
+            this.barDockControl8.Location = new System.Drawing.Point(0, 563);
             this.barDockControl8.Manager = this.barManager1;
             this.barDockControl8.Size = new System.Drawing.Size(800, 0);
             // 
@@ -231,7 +288,7 @@ namespace QLVT
             this.barDockControl9.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl9.Location = new System.Drawing.Point(0, 40);
             this.barDockControl9.Manager = this.barManager1;
-            this.barDockControl9.Size = new System.Drawing.Size(0, 495);
+            this.barDockControl9.Size = new System.Drawing.Size(0, 523);
             // 
             // barDockControl10
             // 
@@ -239,7 +296,7 @@ namespace QLVT
             this.barDockControl10.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl10.Location = new System.Drawing.Point(800, 40);
             this.barDockControl10.Manager = this.barManager1;
-            this.barDockControl10.Size = new System.Drawing.Size(0, 495);
+            this.barDockControl10.Size = new System.Drawing.Size(0, 523);
             // 
             // btnThem1
             // 
@@ -296,7 +353,7 @@ namespace QLVT
             // 
             this.phieuXuatGridControl.DataSource = this.bdsPhieuXuat;
             this.phieuXuatGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.phieuXuatGridControl.Location = new System.Drawing.Point(0, 40);
+            this.phieuXuatGridControl.Location = new System.Drawing.Point(0, 87);
             this.phieuXuatGridControl.MainView = this.gridView1;
             this.phieuXuatGridControl.MenuManager = this.barManager1;
             this.phieuXuatGridControl.Name = "phieuXuatGridControl";
@@ -373,11 +430,11 @@ namespace QLVT
             // 
             this.cTPXGridControl.DataSource = this.bdsCTPX;
             this.cTPXGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cTPXGridControl.Location = new System.Drawing.Point(571, 260);
+            this.cTPXGridControl.Location = new System.Drawing.Point(714, 307);
             this.cTPXGridControl.MainView = this.gridView2;
             this.cTPXGridControl.MenuManager = this.barManager1;
             this.cTPXGridControl.Name = "cTPXGridControl";
-            this.cTPXGridControl.Size = new System.Drawing.Size(229, 275);
+            this.cTPXGridControl.Size = new System.Drawing.Size(86, 256);
             this.cTPXGridControl.TabIndex = 5;
             this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -437,10 +494,46 @@ namespace QLVT
             this.panel1.Controls.Add(nGAYLabel);
             this.panel1.Controls.Add(this.txtNgay);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 260);
+            this.panel1.Location = new System.Drawing.Point(0, 307);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 275);
+            this.panel1.Size = new System.Drawing.Size(714, 256);
             this.panel1.TabIndex = 6;
+            // 
+            // txtMaKho
+            // 
+            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MAKHO", true));
+            this.txtMaKho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaKho.Location = new System.Drawing.Point(492, 130);
+            this.txtMaKho.Name = "txtMaKho";
+            this.txtMaKho.Size = new System.Drawing.Size(100, 26);
+            this.txtMaKho.TabIndex = 9;
+            // 
+            // txtMaNV
+            // 
+            this.txtMaNV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MANV", true));
+            this.txtMaNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNV.Location = new System.Drawing.Point(150, 210);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Size = new System.Drawing.Size(100, 26);
+            this.txtMaNV.TabIndex = 7;
+            // 
+            // txtTenKH
+            // 
+            this.txtTenKH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "HOTENKH", true));
+            this.txtTenKH.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenKH.Location = new System.Drawing.Point(492, 38);
+            this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.Size = new System.Drawing.Size(100, 26);
+            this.txtTenKH.TabIndex = 5;
+            // 
+            // txtMAPX
+            // 
+            this.txtMAPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MAPX", true));
+            this.txtMAPX.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAPX.Location = new System.Drawing.Point(150, 38);
+            this.txtMAPX.Name = "txtMAPX";
+            this.txtMAPX.Size = new System.Drawing.Size(100, 26);
+            this.txtMAPX.TabIndex = 4;
             // 
             // txtNgay
             // 
@@ -464,92 +557,6 @@ namespace QLVT
             this.txtNgay.Size = new System.Drawing.Size(100, 26);
             this.txtNgay.TabIndex = 3;
             // 
-            // nGAYLabel
-            // 
-            nGAYLabel.AutoSize = true;
-            nGAYLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nGAYLabel.Location = new System.Drawing.Point(41, 133);
-            nGAYLabel.Name = "nGAYLabel";
-            nGAYLabel.Size = new System.Drawing.Size(45, 19);
-            nGAYLabel.TabIndex = 2;
-            nGAYLabel.Text = "Ngày:";
-            // 
-            // mAPXLabel
-            // 
-            mAPXLabel.AutoSize = true;
-            mAPXLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAPXLabel.Location = new System.Drawing.Point(41, 41);
-            mAPXLabel.Name = "mAPXLabel";
-            mAPXLabel.Size = new System.Drawing.Size(103, 19);
-            mAPXLabel.TabIndex = 3;
-            mAPXLabel.Text = "Mã Phiếu Xuất:";
-            // 
-            // txtMAPX
-            // 
-            this.txtMAPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MAPX", true));
-            this.txtMAPX.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMAPX.Location = new System.Drawing.Point(150, 38);
-            this.txtMAPX.Name = "txtMAPX";
-            this.txtMAPX.Size = new System.Drawing.Size(100, 26);
-            this.txtMAPX.TabIndex = 4;
-            // 
-            // hOTENKHLabel
-            // 
-            hOTENKHLabel.AutoSize = true;
-            hOTENKHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            hOTENKHLabel.Location = new System.Drawing.Point(274, 41);
-            hOTENKHLabel.Name = "hOTENKHLabel";
-            hOTENKHLabel.Size = new System.Drawing.Size(115, 19);
-            hOTENKHLabel.TabIndex = 4;
-            hOTENKHLabel.Text = "Tên Khách Hàng:";
-            // 
-            // txtTenKH
-            // 
-            this.txtTenKH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "HOTENKH", true));
-            this.txtTenKH.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKH.Location = new System.Drawing.Point(410, 38);
-            this.txtTenKH.Name = "txtTenKH";
-            this.txtTenKH.Size = new System.Drawing.Size(100, 26);
-            this.txtTenKH.TabIndex = 5;
-            // 
-            // mANVLabel
-            // 
-            mANVLabel.AutoSize = true;
-            mANVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mANVLabel.Location = new System.Drawing.Point(41, 213);
-            mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(101, 19);
-            mANVLabel.TabIndex = 6;
-            mANVLabel.Text = "Mã Nhân Viên:";
-            // 
-            // txtMaNV
-            // 
-            this.txtMaNV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MANV", true));
-            this.txtMaNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNV.Location = new System.Drawing.Point(150, 210);
-            this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(100, 26);
-            this.txtMaNV.TabIndex = 7;
-            // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAKHOLabel.Location = new System.Drawing.Point(325, 133);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(64, 19);
-            mAKHOLabel.TabIndex = 8;
-            mAKHOLabel.Text = "Mã Kho:";
-            // 
-            // txtMaKho
-            // 
-            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuXuat, "MAKHO", true));
-            this.txtMaKho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaKho.Location = new System.Drawing.Point(410, 130);
-            this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Size = new System.Drawing.Size(100, 26);
-            this.txtMaKho.TabIndex = 9;
-            // 
             // object_61f010f8_1727_4c85_b1f1_f68abad8014b
             // 
             this.object_61f010f8_1727_4c85_b1f1_f68abad8014b.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -565,14 +572,59 @@ namespace QLVT
             this.object_61f010f8_1727_4c85_b1f1_f68abad8014b.Mask.EditMask = "dd/MM/yyyy";
             this.object_61f010f8_1727_4c85_b1f1_f68abad8014b.Name = "object_61f010f8_1727_4c85_b1f1_f68abad8014b";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbChiNhanh);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 40);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(800, 47);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            // 
+            // cbChiNhanh
+            // 
+            this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChiNhanh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbChiNhanh.FormattingEnabled = true;
+            this.cbChiNhanh.Location = new System.Drawing.Point(173, 13);
+            this.cbChiNhanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbChiNhanh.Name = "cbChiNhanh";
+            this.cbChiNhanh.Size = new System.Drawing.Size(289, 27);
+            this.cbChiNhanh.TabIndex = 3;
+            this.cbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbMaChiNhanh_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(57, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "CHI NHÁNH: ";
+            // 
+            // khoBindingSource
+            // 
+            this.khoBindingSource.DataMember = "Kho";
+            this.khoBindingSource.DataSource = this.dS;
+            // 
+            // khoTableAdapter
+            // 
+            this.khoTableAdapter.ClearBeforeFill = true;
+            // 
             // frmPhieuXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(800, 563);
             this.Controls.Add(this.cTPXGridControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.phieuXuatGridControl);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.barDockControl9);
             this.Controls.Add(this.barDockControl10);
             this.Controls.Add(this.barDockControl8);
@@ -594,6 +646,9 @@ namespace QLVT
             ((System.ComponentModel.ISupportInitialize)(this.txtNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.object_61f010f8_1727_4c85_b1f1_f68abad8014b.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.object_61f010f8_1727_4c85_b1f1_f68abad8014b)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,5 +699,10 @@ namespace QLVT
         private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.TextBox txtMAPX;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit object_61f010f8_1727_4c85_b1f1_f68abad8014b;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbChiNhanh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource khoBindingSource;
+        private DSTableAdapters.KhoTableAdapter khoTableAdapter;
     }
 }

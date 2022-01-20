@@ -154,7 +154,7 @@ namespace QLVT
             // 
             this.khoGridControl.DataSource = this.bdsKho;
             this.khoGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.khoGridControl.Location = new System.Drawing.Point(0, 78);
+            this.khoGridControl.Location = new System.Drawing.Point(0, 84);
             this.khoGridControl.MainView = this.gridView1;
             this.khoGridControl.Name = "khoGridControl";
             this.khoGridControl.Size = new System.Drawing.Size(800, 220);
@@ -363,9 +363,9 @@ namespace QLVT
             this.panelKho.Controls.Add(mAKHOLabel);
             this.panelKho.Controls.Add(this.mAKHOTextBox);
             this.panelKho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelKho.Location = new System.Drawing.Point(0, 298);
+            this.panelKho.Location = new System.Drawing.Point(0, 304);
             this.panelKho.Name = "panelKho";
-            this.panelKho.Size = new System.Drawing.Size(800, 186);
+            this.panelKho.Size = new System.Drawing.Size(800, 180);
             this.panelKho.TabIndex = 0;
             // 
             // dIACHITextBox
@@ -411,25 +411,27 @@ namespace QLVT
             this.panelChiNhanh.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelChiNhanh.Location = new System.Drawing.Point(0, 40);
             this.panelChiNhanh.Name = "panelChiNhanh";
-            this.panelChiNhanh.Size = new System.Drawing.Size(800, 38);
+            this.panelChiNhanh.Size = new System.Drawing.Size(800, 44);
             this.panelChiNhanh.TabIndex = 6;
             // 
             // cbChiNhanh
             // 
             this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChiNhanh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChiNhanh.FormattingEnabled = true;
-            this.cbChiNhanh.Location = new System.Drawing.Point(120, 10);
+            this.cbChiNhanh.Location = new System.Drawing.Point(134, 8);
             this.cbChiNhanh.Name = "cbChiNhanh";
-            this.cbChiNhanh.Size = new System.Drawing.Size(171, 22);
+            this.cbChiNhanh.Size = new System.Drawing.Size(171, 27);
             this.cbChiNhanh.TabIndex = 9;
             this.cbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbChiNhanh_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(59, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 14);
+            this.label1.Size = new System.Drawing.Size(69, 19);
             this.label1.TabIndex = 8;
             this.label1.Text = "Chi nhánh";
             // 

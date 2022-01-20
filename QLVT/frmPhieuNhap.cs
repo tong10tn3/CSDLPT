@@ -17,6 +17,7 @@ namespace QLVT
         DonHang dh;
         private int viTri;
         bool flagDH = false;
+        string macn;
         public frmPhieuNhap()
         {
             InitializeComponent();
@@ -42,15 +43,29 @@ namespace QLVT
 
         private void frmPhieuNhap_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.Kho' table. You can move, or remove it, as needed.
+            
             dS.EnforceConstraints = false;
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.cTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
             this.cTPNTableAdapter.Fill(this.dS.CTPN);
+            this.khoTableAdapter.Fill(this.dS.Kho);
+
+            macn = ((DataRowView)khoBindingSource[0])["MACN"].ToString();// lấy mã chi nhánh mà đang đứng
+            cbChiNhanh.DataSource = Program.bds_dspm;// sao chep bds_dspm da load o form DANGNHAP
+            cbChiNhanh.DisplayMember = "TENCN";
+            cbChiNhanh.ValueMember = "TENSERVER";
+            cbChiNhanh.SelectedIndex = Program.mChinhanh;
 
             if (Program.mGroup.Equals("CONGTY"))
             {
-                btnThem.Enabled = btnXoa.Enabled = btnCTPN.Enabled = false;
+                btnThem.Links[0].Visible = btnXoa.Links[0].Visible = btnGhi.Links[0].Visible = btnUndo.Links[0].Visible = btnCTPN.Links[0].Visible = false;
+            }
+            else
+            {
+                groupBox1.Visible = false;
             }
             btnGhi.Enabled = btnUndo.Enabled = panel1.Enabled = false;
         }
@@ -175,6 +190,38 @@ namespace QLVT
                 if (!dh.maKho.Equals("")) txtMAKHO.Text = dh.maKho;
                 if (!dh.maDDH.Equals("")) txtMADDH.Text = dh.maDDH;
                 flagDH = false;
+            }
+        }
+
+        private void cbMaChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            Program.serverName = cbChiNhanh.SelectedValue.ToString();
+            if (cbChiNhanh.SelectedIndex != Program.mChinhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+
+            }
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Loi ket noi ve chi nhanh  moi", "", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+                dS.EnforceConstraints = false;
+                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.cTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
+                this.cTPNTableAdapter.Fill(this.dS.CTPN);
             }
         }
     }

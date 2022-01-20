@@ -62,7 +62,6 @@ namespace QLVT
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gbVatTu = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nuSLT = new System.Windows.Forms.NumericUpDown();
             this.txtDVT = new System.Windows.Forms.TextBox();
@@ -93,40 +92,40 @@ namespace QLVT
             // mAVTLabel
             // 
             mAVTLabel.AutoSize = true;
-            mAVTLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAVTLabel.Location = new System.Drawing.Point(254, 30);
+            mAVTLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAVTLabel.Location = new System.Drawing.Point(58, 51);
             mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(81, 19);
+            mAVTLabel.Size = new System.Drawing.Size(96, 21);
             mAVTLabel.TabIndex = 0;
             mAVTLabel.Text = "Mã Vật Tư:";
             // 
             // tENVTLabel
             // 
             tENVTLabel.AutoSize = true;
-            tENVTLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENVTLabel.Location = new System.Drawing.Point(254, 134);
+            tENVTLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tENVTLabel.Location = new System.Drawing.Point(58, 155);
             tENVTLabel.Name = "tENVTLabel";
-            tENVTLabel.Size = new System.Drawing.Size(83, 19);
+            tENVTLabel.Size = new System.Drawing.Size(101, 21);
             tENVTLabel.TabIndex = 2;
             tENVTLabel.Text = "Tên Vật Tư:";
             // 
             // dVTLabel
             // 
             dVTLabel.AutoSize = true;
-            dVTLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dVTLabel.Location = new System.Drawing.Point(511, 30);
+            dVTLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dVTLabel.Location = new System.Drawing.Point(427, 52);
             dVTLabel.Name = "dVTLabel";
-            dVTLabel.Size = new System.Drawing.Size(86, 19);
+            dVTLabel.Size = new System.Drawing.Size(110, 21);
             dVTLabel.TabIndex = 4;
             dVTLabel.Text = "Đơn Vị Tính:";
             // 
             // sOLUONGTONLabel
             // 
             sOLUONGTONLabel.AutoSize = true;
-            sOLUONGTONLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sOLUONGTONLabel.Location = new System.Drawing.Point(511, 134);
+            sOLUONGTONLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sOLUONGTONLabel.Location = new System.Drawing.Point(427, 156);
             sOLUONGTONLabel.Name = "sOLUONGTONLabel";
-            sOLUONGTONLabel.Size = new System.Drawing.Size(101, 19);
+            sOLUONGTONLabel.Size = new System.Drawing.Size(125, 21);
             sOLUONGTONLabel.TabIndex = 6;
             sOLUONGTONLabel.Text = "Số Lượng Tồn:";
             // 
@@ -268,7 +267,7 @@ namespace QLVT
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 480);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 499);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(800, 0);
             // 
@@ -278,7 +277,7 @@ namespace QLVT
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 440);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 459);
             // 
             // barDockControlRight
             // 
@@ -286,7 +285,7 @@ namespace QLVT
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(800, 40);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 440);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 459);
             // 
             // dS
             // 
@@ -380,7 +379,6 @@ namespace QLVT
             // 
             // gbVatTu
             // 
-            this.gbVatTu.Controls.Add(this.label2);
             this.gbVatTu.Controls.Add(this.label1);
             this.gbVatTu.Controls.Add(sOLUONGTONLabel);
             this.gbVatTu.Controls.Add(this.nuSLT);
@@ -393,17 +391,8 @@ namespace QLVT
             this.gbVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbVatTu.Location = new System.Drawing.Point(0, 277);
             this.gbVatTu.Name = "gbVatTu";
-            this.gbVatTu.Size = new System.Drawing.Size(800, 203);
+            this.gbVatTu.Size = new System.Drawing.Size(800, 222);
             this.gbVatTu.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(88, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 14);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
             // 
             // label1
             // 
@@ -418,33 +407,37 @@ namespace QLVT
             // nuSLT
             // 
             this.nuSLT.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsVatTu, "SOLUONGTON", true));
-            this.nuSLT.Location = new System.Drawing.Point(618, 136);
+            this.nuSLT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nuSLT.Location = new System.Drawing.Point(568, 158);
             this.nuSLT.Name = "nuSLT";
-            this.nuSLT.Size = new System.Drawing.Size(100, 20);
+            this.nuSLT.Size = new System.Drawing.Size(100, 29);
             this.nuSLT.TabIndex = 7;
             // 
             // txtDVT
             // 
             this.txtDVT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "DVT", true));
-            this.txtDVT.Location = new System.Drawing.Point(618, 29);
+            this.txtDVT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDVT.Location = new System.Drawing.Point(568, 51);
             this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(100, 20);
+            this.txtDVT.Size = new System.Drawing.Size(100, 29);
             this.txtDVT.TabIndex = 5;
             // 
             // txtTENVT
             // 
             this.txtTENVT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "TENVT", true));
-            this.txtTENVT.Location = new System.Drawing.Point(343, 136);
+            this.txtTENVT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTENVT.Location = new System.Drawing.Point(185, 156);
             this.txtTENVT.Name = "txtTENVT";
-            this.txtTENVT.Size = new System.Drawing.Size(100, 20);
+            this.txtTENVT.Size = new System.Drawing.Size(168, 29);
             this.txtTENVT.TabIndex = 3;
             // 
             // txtMAVT
             // 
             this.txtMAVT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "MAVT", true));
-            this.txtMAVT.Location = new System.Drawing.Point(343, 30);
+            this.txtMAVT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAVT.Location = new System.Drawing.Point(185, 50);
             this.txtMAVT.Name = "txtMAVT";
-            this.txtMAVT.Size = new System.Drawing.Size(100, 20);
+            this.txtMAVT.Size = new System.Drawing.Size(168, 29);
             this.txtMAVT.TabIndex = 1;
             // 
             // bdsCTPX
@@ -478,7 +471,7 @@ namespace QLVT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 480);
+            this.ClientSize = new System.Drawing.Size(800, 499);
             this.Controls.Add(this.gbVatTu);
             this.Controls.Add(this.gcVatTu);
             this.Controls.Add(this.barDockControlLeft);
@@ -538,7 +531,6 @@ namespace QLVT
         private System.Windows.Forms.TextBox txtTENVT;
         private System.Windows.Forms.TextBox txtMAVT;
         private System.Windows.Forms.NumericUpDown nuSLT;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bdsCTPX;
         private DSTableAdapters.CTPXTableAdapter cTPXTableAdapter;

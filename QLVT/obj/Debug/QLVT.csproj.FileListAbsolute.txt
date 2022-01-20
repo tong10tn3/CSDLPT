@@ -311,3 +311,4 @@ G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.formCon.frmChiTietDDH.resources
 G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.frmHoatDongNhanVien.resources
 G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.RPDDH.resources
 G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.RPHoatDongNhanVien.resources
+G:\workspaceC#\CSDLPT\QLVT\obj\Debug\QLVT.reporting.frmDSNV.resources

@@ -19,5 +19,16 @@ namespace QLVT.reporting
             this.sqlDataSource1.Queries[0].Parameters[1].Value = macn;
             this.sqlDataSource1.Fill();
         }
+
+        public DanhSachNhanVien(string macn, string tencn)
+        {
+            InitializeComponent();
+            lblChiNhanh.Text = tencn;
+            this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
+
+            this.sqlDataSource1.Queries[0].Parameters[0].Value = Program.mGroup;
+            this.sqlDataSource1.Queries[0].Parameters[1].Value = macn;
+            this.sqlDataSource1.Fill();
+        }
     }
 }
