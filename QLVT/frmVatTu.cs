@@ -44,7 +44,9 @@ namespace QLVT
 
             if (Program.mGroup.Equals("CONGTY"))
             {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                btnThem.Links[0].Visible = btnSua.Links[0].Visible = btnXoa.Links[0].Visible
+                    = btnGhi.Links[0].Visible = btnUndo.Links[0].Visible = false;
+                gbVatTu.Enabled = false;
             }
             btnUndo.Enabled = btnGhi.Enabled = gbVatTu.Enabled = false;
         }

@@ -74,17 +74,18 @@ namespace QLVT
             cbMaChiNhanh.SelectedIndex = Program.mChinhanh;
             if (Program.mGroup == "CONGTY")
             {
-                cbMaChiNhanh.Enabled = true;
-                btnThem.Enabled = btnSua.Enabled = btnGhi.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnChuyenChiNhanh.Enabled = false;
+                //cbMaChiNhanh.Visible = true;
+                btnThem.Links[0].Visible = btnSua.Links[0].Visible = btnGhi.Links[0].Visible = btnXoa.Links[0].Visible = btnPhucHoi.Links[0].Visible = btnChuyenChiNhanh.Links[0].Visible = false;
                 ReadOnlyTextEdit(true);
             }
             else //bat tat theo phan quyen
             {
-                btnThem.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnXoa.Enabled = btnChuyenChiNhanh.Enabled = true;
-                cbMaChiNhanh.Enabled = false;
+                btnThem.Links[0].Visible = btnGhi.Links[0].Visible = btnPhucHoi.Links[0].Visible = btnXoa.Links[0].Visible = btnChuyenChiNhanh.Links[0].Visible = true;
+                cbMaChiNhanh.Visible = false;
 
                 ReadOnlyTextEdit(true);
             }
+            pnThongTin.Enabled = false;
 
             gvNhanVien.Columns["MANV"].Caption = "MÃ NHÂN VIÊN";
             gvNhanVien.Columns["HO"].Caption = "HỌ";

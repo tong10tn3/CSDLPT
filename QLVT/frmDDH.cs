@@ -107,7 +107,7 @@ namespace QLVT
             if (Program.mGroup == "CONGTY")
             {
                 cbMaChiNhanh.Enabled = true;
-                btnThem.Enabled = btnSua.Enabled = btnGhi.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = false;
+                btnThem.Links[0].Visible = btnSua.Links[0].Visible = btnGhi.Links[0].Visible = btnXoa.Links[0].Visible = btnPhucHoi.Links[0].Visible = false;
                 contextMenuStrip1.Enabled = false;
                 contextMenuStrip2.Enabled = false;
             }

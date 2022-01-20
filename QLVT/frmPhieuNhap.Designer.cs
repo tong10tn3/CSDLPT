@@ -77,6 +77,11 @@ namespace QLVT
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.khoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.khoTableAdapter = new QLVT.DSTableAdapters.KhoTableAdapter();
             nGAYLabel = new System.Windows.Forms.Label();
             mAPNLabel = new System.Windows.Forms.Label();
             masoDDHLabel = new System.Windows.Forms.Label();
@@ -94,13 +99,15 @@ namespace QLVT
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nGAYLabel
             // 
             nGAYLabel.AutoSize = true;
             nGAYLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nGAYLabel.Location = new System.Drawing.Point(73, 144);
+            nGAYLabel.Location = new System.Drawing.Point(55, 120);
             nGAYLabel.Name = "nGAYLabel";
             nGAYLabel.Size = new System.Drawing.Size(45, 19);
             nGAYLabel.TabIndex = 0;
@@ -110,7 +117,7 @@ namespace QLVT
             // 
             mAPNLabel.AutoSize = true;
             mAPNLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAPNLabel.Location = new System.Drawing.Point(73, 69);
+            mAPNLabel.Location = new System.Drawing.Point(55, 45);
             mAPNLabel.Name = "mAPNLabel";
             mAPNLabel.Size = new System.Drawing.Size(108, 19);
             mAPNLabel.TabIndex = 2;
@@ -120,7 +127,7 @@ namespace QLVT
             // 
             masoDDHLabel.AutoSize = true;
             masoDDHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            masoDDHLabel.Location = new System.Drawing.Point(339, 69);
+            masoDDHLabel.Location = new System.Drawing.Point(395, 44);
             masoDDHLabel.Name = "masoDDHLabel";
             masoDDHLabel.Size = new System.Drawing.Size(99, 19);
             masoDDHLabel.TabIndex = 4;
@@ -130,7 +137,7 @@ namespace QLVT
             // 
             mANVLabel.AutoSize = true;
             mANVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mANVLabel.Location = new System.Drawing.Point(73, 221);
+            mANVLabel.Location = new System.Drawing.Point(55, 197);
             mANVLabel.Name = "mANVLabel";
             mANVLabel.Size = new System.Drawing.Size(101, 19);
             mANVLabel.TabIndex = 6;
@@ -140,7 +147,7 @@ namespace QLVT
             // 
             mAKHOLabel.AutoSize = true;
             mAKHOLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAKHOLabel.Location = new System.Drawing.Point(339, 148);
+            mAKHOLabel.Location = new System.Drawing.Point(395, 123);
             mAKHOLabel.Name = "mAKHOLabel";
             mAKHOLabel.Size = new System.Drawing.Size(64, 19);
             mAKHOLabel.TabIndex = 8;
@@ -333,7 +340,7 @@ namespace QLVT
             // 
             this.gcPN.DataSource = this.bdsPN;
             this.gcPN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcPN.Location = new System.Drawing.Point(0, 40);
+            this.gcPN.Location = new System.Drawing.Point(0, 87);
             this.gcPN.MainView = this.gridView1;
             this.gcPN.MenuManager = this.barManager1;
             this.gcPN.Name = "gcPN";
@@ -411,16 +418,16 @@ namespace QLVT
             this.panel1.Controls.Add(nGAYLabel);
             this.panel1.Controls.Add(this.txtNgay);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 260);
+            this.panel1.Location = new System.Drawing.Point(0, 307);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(598, 297);
+            this.panel1.Size = new System.Drawing.Size(711, 250);
             this.panel1.TabIndex = 10;
             // 
             // txtMAKHO
             // 
             this.txtMAKHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MAKHO", true));
             this.txtMAKHO.Enabled = false;
-            this.txtMAKHO.Location = new System.Drawing.Point(444, 149);
+            this.txtMAKHO.Location = new System.Drawing.Point(500, 124);
             this.txtMAKHO.Name = "txtMAKHO";
             this.txtMAKHO.Size = new System.Drawing.Size(100, 20);
             this.txtMAKHO.TabIndex = 9;
@@ -429,7 +436,7 @@ namespace QLVT
             // 
             this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MANV", true));
             this.txtMANV.Enabled = false;
-            this.txtMANV.Location = new System.Drawing.Point(187, 222);
+            this.txtMANV.Location = new System.Drawing.Point(169, 198);
             this.txtMANV.Name = "txtMANV";
             this.txtMANV.Size = new System.Drawing.Size(100, 20);
             this.txtMANV.TabIndex = 7;
@@ -437,7 +444,7 @@ namespace QLVT
             // txtMADDH
             // 
             this.txtMADDH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPN, "MasoDDH", true));
-            this.txtMADDH.Location = new System.Drawing.Point(444, 66);
+            this.txtMADDH.Location = new System.Drawing.Point(500, 41);
             this.txtMADDH.MenuManager = this.barManager1;
             this.txtMADDH.Name = "txtMADDH";
             this.txtMADDH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -449,7 +456,7 @@ namespace QLVT
             // txtMAPN
             // 
             this.txtMAPN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPN, "MAPN", true));
-            this.txtMAPN.Location = new System.Drawing.Point(187, 68);
+            this.txtMAPN.Location = new System.Drawing.Point(169, 44);
             this.txtMAPN.Name = "txtMAPN";
             this.txtMAPN.Size = new System.Drawing.Size(100, 20);
             this.txtMAPN.TabIndex = 3;
@@ -459,7 +466,7 @@ namespace QLVT
             this.txtNgay.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPN, "NGAY", true));
             this.txtNgay.EditValue = null;
             this.txtNgay.Enabled = false;
-            this.txtNgay.Location = new System.Drawing.Point(187, 145);
+            this.txtNgay.Location = new System.Drawing.Point(169, 121);
             this.txtNgay.MenuManager = this.barManager1;
             this.txtNgay.Name = "txtNgay";
             this.txtNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -482,11 +489,11 @@ namespace QLVT
             // 
             this.cTPNGridControl.DataSource = this.bdsCTPN;
             this.cTPNGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cTPNGridControl.Location = new System.Drawing.Point(598, 260);
+            this.cTPNGridControl.Location = new System.Drawing.Point(711, 307);
             this.cTPNGridControl.MainView = this.gridView2;
             this.cTPNGridControl.MenuManager = this.barManager1;
             this.cTPNGridControl.Name = "cTPNGridControl";
-            this.cTPNGridControl.Size = new System.Drawing.Size(202, 297);
+            this.cTPNGridControl.Size = new System.Drawing.Size(89, 250);
             this.cTPNGridControl.TabIndex = 10;
             this.cTPNGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -538,6 +545,50 @@ namespace QLVT
             this.colDONGIA.Visible = true;
             this.colDONGIA.VisibleIndex = 3;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbChiNhanh);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 40);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(800, 47);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            // 
+            // cbChiNhanh
+            // 
+            this.cbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChiNhanh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbChiNhanh.FormattingEnabled = true;
+            this.cbChiNhanh.Location = new System.Drawing.Point(173, 13);
+            this.cbChiNhanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbChiNhanh.Name = "cbChiNhanh";
+            this.cbChiNhanh.Size = new System.Drawing.Size(289, 27);
+            this.cbChiNhanh.TabIndex = 3;
+            this.cbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbMaChiNhanh_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(57, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "CHI NHÁNH: ";
+            // 
+            // khoBindingSource
+            // 
+            this.khoBindingSource.DataMember = "Kho";
+            this.khoBindingSource.DataSource = this.dS;
+            // 
+            // khoTableAdapter
+            // 
+            this.khoTableAdapter.ClearBeforeFill = true;
+            // 
             // frmPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -546,6 +597,7 @@ namespace QLVT
             this.Controls.Add(this.cTPNGridControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gcPN);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.barDockControl9);
             this.Controls.Add(this.barDockControl10);
             this.Controls.Add(this.barDockControl8);
@@ -568,6 +620,9 @@ namespace QLVT
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPNGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.khoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -616,5 +671,10 @@ namespace QLVT
         private DevExpress.XtraEditors.ButtonEdit txtMADDH;
         private System.Windows.Forms.TextBox txtMAPN;
         private DevExpress.XtraEditors.DateEdit txtNgay;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbChiNhanh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource khoBindingSource;
+        private DSTableAdapters.KhoTableAdapter khoTableAdapter;
     }
 }

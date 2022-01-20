@@ -149,9 +149,17 @@ namespace QLVT
 
         private void btnRPDSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhSachNhanVien rpt = new DanhSachNhanVien();
-            ReportPrintTool print = new ReportPrintTool(rpt);
-            print.ShowPreviewDialog();
+            if (Program.mGroup.Equals("CONGTY"))
+            {
+                frmDSNV dsnv = new frmDSNV();
+                dsnv.Show();
+            }
+            else
+            {
+                DanhSachNhanVien rpt = new DanhSachNhanVien();
+                ReportPrintTool print = new ReportPrintTool(rpt);
+                print.ShowPreviewDialog();
+            }
         }
 
         private void btnRPDMVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
