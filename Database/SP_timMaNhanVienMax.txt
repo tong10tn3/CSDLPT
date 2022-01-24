@@ -1,0 +1,15 @@
+USE [QLVT]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_timMaNhanVienMax]    Script Date: 27/11/2021 14:46:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_timMaNhanVienMax]
+as
+DECLARE @max1 int, @max2 int
+select @max1=MAX(MANV) from nhanvien
+select @max2=MAX(MANV) from link0.QLVT.dbo.nhanvien
+if @max1 > @max2
+return @max1
+else return @max2

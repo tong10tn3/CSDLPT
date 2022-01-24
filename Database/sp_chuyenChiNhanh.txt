@@ -1,0 +1,22 @@
+USE [QLVT]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_chuyenChiNhanh]    Script Date: 27/11/2021 14:42:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[sp_chuyenChiNhanh] @manhanvien int, @ho nvarchar(40),@ten nvarchar (10), @diachi nvarchar(100), @ngaysinh nchar(40), @luong float, @macn nchar(10)
+as
+declare @dem int,
+@idtam int;
+select @dem=COUNT(MANV), @idtam=MANV from link1.qlvt.dbo.nhanvien
+where ho= @ho and ten=@ten and diachi=@diachi and ngaysinh=@ngaysinh and TrangThaiXoa=1
+group by MANV
+print @dem
+print @idtam
+if @dem>0
+begin
+	 UPDATE link1.qlvt.dbo.nhanvien SET TrangThaiXoa = 0,LUONG=@luong WHERE MANV=@idtam;
+end
+else
+insert into link1.qlvt.dbo.nhanvien(MANV,HO,TEN,DIACHI,NGAYSINH,LUONG,MACN,TrangThaiXoa) values (@manhanvien,@ho,@ten,@diachi,@ngaysinh,@luong,@macn,0)

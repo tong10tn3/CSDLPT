@@ -1,0 +1,48 @@
+USE [QLVT]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_TongHopNhapXuat]    Script Date: 1/24/2022 10:15:04 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[SP_TongHopNhapXuat]
+	@NgayBD date,
+	@NgayKT date
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF 1=0 BEGIN
+		SET FMTONLY OFF
+	END
+	IF OBJECT_ID('TEMPDB.DBO.#BANG1') IS NOT NULL
+		DROP TABLE #BANG1
+	IF OBJECT_ID('TEMPDB.DBO.#BANG2') IS NOT NULL
+		DROP TABLE #BANG2
+
+	SELECT NGAY, TONGNHAP = SUM(SOLUONG*DONGIA) INTO #BANG1
+	FROM PhieuNhap INNER JOIN CTPN ON PhieuNhap.MAPN = CTPN.MAPN
+	WHERE PhieuNhap.NGAY BETWEEN @NgayBD AND @NgayKT
+	GROUP BY NGAY
+
+	SELECT NGAY, TONGXUAT = SUM(SOLUONG*DONGIA) INTO #BANG2
+	FROM PhieuXuat INNER JOIN CTPX ON PhieuXuat.MAPX = CTPX.MAPX
+	WHERE PhieuXuat.NGAY BETWEEN @NgayBD AND @NgayKT
+	GROUP BY NGAY
+
+	SELECT 
+		NGAY = ISNULL(#BANG1.NGAY,#BANG2.NGAY), 
+		NHAP = ISNULL(#BANG1.TONGNHAP,0), 
+		XUAT = ISNULL(#BANG2.TONGXUAT,0)
+	FROM #BANG1 FULL JOIN #BANG2 ON #BANG1.NGAY = #BANG2.NGAY
+END
+
+GO
+
