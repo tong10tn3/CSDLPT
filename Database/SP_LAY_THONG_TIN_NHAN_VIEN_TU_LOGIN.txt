@@ -1,0 +1,19 @@
+USE [QLVT]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_LAY_THONG_TIN_NV_TU_LOGIN]    Script Date: 27/11/2021 14:45:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[SP_LAY_THONG_TIN_NV_TU_LOGIN]
+@tenlogin nvarchar(100)
+as
+declare @UID int
+DECLARE @MANV Nvarchar(100)
+Select @UID=uid,@MANV=name from sys.sysusers
+where sid=SUSER_SID(@tenlogin)
+select MAGV=@MANV,
+		HOTEN=(SELECT HO+' '+TEN from dbo.NhanVien where MANV=@MANV),
+		TENNHOM=NAME
+from sys.sysusers
+where UID=(SELECT groupuid from sys.sysmembers where memberuid=@uid)

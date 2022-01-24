@@ -1,0 +1,16 @@
+USE [QLVT]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_DDHKhongCoPN]    Script Date: 27/11/2021 14:44:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[sp_DDHKhongCoPN]
+as
+
+select DH.MasoDDH,NGAY,NhaCC,HOTEN,TENVT,SOLUONG,DONGIA 
+from (select MasoDDH,NGAY,NhaCC,MaNV from DatHang where dathang.MasoDDH not in (select MasoDDH from PhieuNhap)) DH,
+		(select Vattu.MAVT ,Vattu.TENVT from Vattu) VT, 
+		(select NhanVien.MANV,HO+' '+TEN HOTEN from NhanVien) NV,
+		CTDDH CT
+where DH.MasoDDH=CT.MasoDDH and DH.MANV=NV.MANV and CT.MAVT=VT.MAVT

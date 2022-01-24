@@ -1,0 +1,13 @@
+USE [QLVT]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_timMaCN]    Script Date: 27/11/2021 14:46:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_timMaCN] 
+
+as
+select  TENCN =description ,MACN= SUBSTRING(name, 6,3) 
+ From link0.QLVT.dbo.sysmergepublications 
+ where name<>'QLVT_TRACUU' 
